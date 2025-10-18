@@ -1,0 +1,172 @@
+/* ===== PALETA DE COLORES JIM TATTOO INK ===== */
+:root {
+  /* Colores principales */
+  --color-black: #000000;        /* Negro puro - elegancia */
+  --color-dark: #1A1A1A;         /* Negro con textura */
+  --color-beige: #F5F1E8;        /* Beige claro - fondo elegante */
+  --color-beige-dark: #E8E2D4;   /* Beige oscuro - contraste */
+  --color-grey: #2A2A2A;         /* Gris humo - detalles */
+  --color-burgundy: #8B0000;     /* Borgoña - acentos importantes */
+  --color-gold: #D4AF37;         /* Dorado - lujo discreto */
+  
+  /* Tipografías */
+  --font-primary: 'Playfair Display', serif;
+  --font-secondary: 'Inter', sans-serif;
+  
+  /* Espaciados */
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 2rem;
+  --spacing-xlarge: 4rem;
+}
+
+/* ===== ESTILOS BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--color-beige);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+/* ===== ESTILOS DE TEXTO ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  color: var(--color-black);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: var(--spacing-medium);
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-medium);
+  color: var(--color-burgundy);
+}
+
+/* ===== BOTONES ===== */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 2px;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-burgundy);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-black);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-black);
+  border: 2px solid var(--color-black);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-black);
+  color: white;
+}
+
+/* ===== HEADER Y NAVEGACIÓN ===== */
+.header {
+  background-color: var(--color-black);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.logo {
+  color: var(--color-beige);
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--color-beige);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-gold);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-black) 100%);
+  color: var(--color-beige);
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  color: var(--color-beige);
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+/* ===== SECCIONES GENERALES ===== */
+.section {
+  padding: var(--spacing-xlarge) 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-dark {
+  background-color: var(--color-dark);
+  color: var(--color-beige);
+}
+
+.section-dark h2 {
+  color: var(--color-gold);
+}

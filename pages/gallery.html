@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Tatuajes - Blackwork Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">Blackwork Studio</h1>
+                <p class="tagline">Arte en Tinta Negra</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Sección de Filtros -->
+            <section class="filters-section">
+                <h2 class="section-title">Nuestras Obras</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="todos">
+                        Todos
+                    </button>
+                    <button class="filter-btn" data-filter="blackwork">
+                        Blackwork
+                    </button>
+                    <button class="filter-btn" data-filter="minimalista">
+                        Minimalista
+                    </button>
+                    <button class="filter-btn" data-filter="geometrico">
+                        Geométrico
+                    </button>
+                </div>
+            </section>
+
+            <!-- Galería de Imágenes -->
+            <section class="gallery-section">
+                <div class="gallery-grid">
+                    <!-- Tarjeta 1: Blackwork -->
+                    <article class="gallery-card" data-category="blackwork">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&h=600&fit=crop" alt="Tatuaje Blackwork - Rostro" class="card-image">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="Ver imagen en grande">
+                                    <span>Ver Obra</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Rostro Blackwork</h3>
+                            <p class="card-category">Blackwork</p>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 2: Blackwork -->
+                    <article class="gallery-card" data-category="blackwork">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1590080876-f0e5f2b4d4f5?w=500&h=600&fit=crop" alt="Tatuaje Blackwork - Geométrico" class="card-image">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="Ver imagen en grande">
+                                    <span>Ver Obra</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Líneas Blackwork</h3>
+                            <p class="card-category">Blackwork</p>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 3: Minimalista -->
+                    <article class="gallery-card" data-category="minimalista">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1598808502154-550b3e5e0f5f?w=500&h=600&fit=crop" alt="Tatuaje Minimalista - Símbolo" class="card-image">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="Ver imagen en grande">
+                                    <span>Ver Obra</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Símbolo Minimalista</h3>
+                            <p class="card-category">Minimalista</p>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 4: Geométrico -->
+                    <article class="gallery-card" data-category="geometrico">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1600936603679-3c53ba2e4248?w=500&h=600&fit=crop" alt="Tatuaje Geométrico - Mandala" class="card-image">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="Ver imagen en grande">
+                                    <span>Ver Obra</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Mandala Geométrico</h3>
+                            <p class="card-category">Geométrico</p>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 5: Blackwork -->
+                    <article class="gallery-card" data-category="blackwork">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1569174318-f8c7c8c5c5c5?w=500&h=600&fit=crop" alt="Tatuaje Blackwork - Animal" class="card-image">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="Ver imagen en grande">
+                                    <span>Ver Obra</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Animal Blackwork</h3>
+                            <p class="card-category">Blackwork</p>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 6: Minimalista -->
+                    <article class="gallery-card" data-category="minimalista">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1577720643272-265f434a3e2b?w=500&h=600&fit=crop" alt="Tatuaje Minimalista - Línea" class="card-image">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="Ver imagen en grande">
+                                    <span>Ver Obra</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Línea Simple</h3>
+                            <p class="card-category">Minimalista</p>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 7: Geométrico -->
+                    <article class="gallery-card" data-category="geometrico">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1594787318286-3d835c1cab83?w=500&h=600&fit=crop" alt="Tatuaje Geométrico - Patrón" class="card-image">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="Ver imagen en grande">
+                                    <span>Ver Obra</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Patrón Geométrico</h3>
+                            <p class="card-category">Geométrico</p>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 8: Blackwork -->
+                    <article class="gallery-card" data-category="blackwork">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1600936603679-3c53ba2e4248?w=500&h=600&fit=crop" alt="Tatuaje Blackwork - Complejo" class="card-image">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="Ver imagen en grande">
+                                    <span>Ver Obra</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Diseño Complejo</h3>
+                            <p class="card-category">Blackwork</p>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 9: Minimalista -->
+                    <article class="gallery-card" data-category="minimalista">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&h=600&fit=crop" alt="Tatuaje Minimalista - Punto" class="card-image">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="Ver imagen en grande">
+                                    <span>Ver Obra</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Punto Minimalista</h3>
+                            <p class="card-category">Minimalista</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Cerrar">×</button>
+            <button class="lightbox-prev" aria-label="Imagen anterior">❮</button>
+            <img src="" alt="" class="lightbox-image" id="lightboxImage">
+            <button class="lightbox-next" aria-label="Siguiente imagen">❯</button>
+            <div class="lightbox-info">
+                <h3 class="lightbox-title" id="lightboxTitle"></h3>
+                <p class="lightbox-category" id="lightboxCategory"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Blackwork Studio. Todos los derechos reservados.</p>
+            <p class="footer-contact">Contacto: info@blackworkstudio.com | +34 XXX XXX XXX</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

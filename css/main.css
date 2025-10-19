@@ -170,3 +170,31 @@ h2 {
 .section-dark h2 {
   color: var(--color-gold);
 }
+
+/* === PRUEBA DE COLORES (para verificar) === */
+.color-test {
+  padding: 2rem;
+  margin: 1rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  min-width: 200px;
+  display: inline-block;
+}
+
+.colors-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+/* Agrega esto al final de tu main.css */
+body {
+  padding-top: 80px; /* Para que el contenido no quede detrás del header fixed */
+}
+
+.hero {
+  margin-top: -80px; /* Compensa el padding del body */
+}

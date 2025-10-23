@@ -1,15 +1,22 @@
 /* ============================================
-   VARIABLES Y CONFIGURACIÓN GLOBAL
+   VARIABLES Y CONFIGURACIÓN GLOBAL - CORREGIDO
    ============================================ */
 
 :root {
+    /* PALETA OFICIAL JIM TATTOO INK */
     --color-black: #000000;
-    --color-cream: #F5F1E8;
-    --color-dark-red: #8B0000;
+    --color-beige: #F5F1E8;
+    --color-beige-dark: #E8E2D4;
+    --color-grey: #2A2A2A;
+    --color-burgundy: #8B0000;
     --color-gold: #D4AF37;
     
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    /* ALIAS PARA COMPATIBILIDAD */
+    --color-cream: var(--color-beige);
+    --color-dark-red: var(--color-burgundy);
+    
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Inter', sans-serif;
     
     --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --transition-fast: all 0.2s ease-out;
@@ -40,10 +47,11 @@ html {
 }
 
 body {
-    font-family: var(--font-body);
-    background-color: var(--color-cream);
+    font-family: var(--font-secondary);
+    background-color: var(--color-beige);
     color: var(--color-black);
     line-height: 1.6;
+    padding-top: 80px; /* Para header fixed */
 }
 
 .container {
@@ -53,67 +61,97 @@ body {
 }
 
 /* ============================================
-   HEADER
+   HEADER FIXED (ESTILO JIM TATTOO INK)
    ============================================ */
 
 .header {
-    background: linear-gradient(135deg, var(--color-black) 0%, #1a1a1a 100%);
-    color: var(--color-cream);
-    padding: var(--spacing-xl) var(--spacing-md);
-    text-align: center;
-    border-bottom: 3px solid var(--color-gold);
-    animation: slideDown 0.6s ease-out;
+    background-color: var(--color-black);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.header-content {
-    animation: fadeInUp 0.8s ease-out 0.2s both;
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .logo {
-    font-family: var(--font-display);
-    font-size: 3rem;
+    color: var(--color-beige);
+    font-family: var(--font-primary);
+    font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: var(--spacing-sm);
-    letter-spacing: 2px;
-    text-transform: uppercase;
 }
 
-.tagline {
-    font-size: 1.1rem;
-    font-weight: 300;
-    letter-spacing: 1px;
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--color-beige);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--color-gold);
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
 }
 
 /* ============================================
-   MAIN CONTENT
+   GALERÍA HERO SECTION
    ============================================ */
 
-.main-content {
-    padding: var(--spacing-xl) var(--spacing-md);
-    min-height: calc(100vh - 200px);
+.gallery-hero {
+    background: linear-gradient(135deg, var(--color-black) 0%, var(--color-grey) 100%);
+    color: var(--color-beige);
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-top: -80px;
+    padding-top: 140px;
+}
+
+.gallery-hero h1 {
+    font-family: var(--font-primary);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-beige);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-hero p {
+    font-size: 1.3rem;
+    color: var(--color-gold);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* ============================================
@@ -123,15 +161,15 @@ body {
 .filters-section {
     margin-bottom: var(--spacing-xl);
     text-align: center;
-    animation: fadeInUp 0.8s ease-out 0.3s both;
+    padding: 2rem 2rem 0;
 }
 
 .section-title {
-    font-family: var(--font-display);
+    font-family: var(--font-primary);
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: var(--spacing-lg);
-    color: var(--color-black);
+    color: var(--color-burgundy);
     position: relative;
     padding-bottom: var(--spacing-md);
 }
@@ -144,7 +182,7 @@ body {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: linear-gradient(90deg, var(--color-dark-red), var(--color-gold));
+    background: linear-gradient(90deg, var(--color-burgundy), var(--color-gold));
     border-radius: 2px;
 }
 
@@ -160,7 +198,7 @@ body {
     border: 2px solid var(--color-black);
     background-color: transparent;
     color: var(--color-black);
-    font-family: var(--font-body);
+    font-family: var(--font-secondary);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -168,6 +206,7 @@ body {
     position: relative;
     overflow: hidden;
     letter-spacing: 0.5px;
+    border-radius: 2px;
 }
 
 .filter-btn::before {
@@ -177,7 +216,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background-color: var(--color-dark-red);
+    background-color: var(--color-burgundy);
     transition: left 0.3s ease-out;
     z-index: -1;
 }
@@ -187,8 +226,8 @@ body {
 }
 
 .filter-btn:hover {
-    color: var(--color-cream);
-    border-color: var(--color-dark-red);
+    color: var(--color-beige);
+    border-color: var(--color-burgundy);
 }
 
 .filter-btn.active {
@@ -203,14 +242,13 @@ body {
    ============================================ */
 
 .gallery-section {
-    animation: fadeInUp 0.8s ease-out 0.4s both;
+    padding: 0 2rem 4rem;
 }
 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--spacing-lg);
-    animation: fadeIn 0.6s ease-out;
 }
 
 @keyframes fadeIn {
@@ -227,7 +265,7 @@ body {
    ============================================ */
 
 .gallery-card {
-    background-color: var(--color-cream);
+    background-color: var(--color-beige);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
@@ -307,7 +345,7 @@ body {
     color: var(--color-black);
     border: none;
     padding: var(--spacing-sm) var(--spacing-lg);
-    font-family: var(--font-body);
+    font-family: var(--font-secondary);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -323,18 +361,18 @@ body {
 }
 
 .view-btn:hover {
-    background-color: var(--color-dark-red);
-    color: var(--color-cream);
+    background-color: var(--color-burgundy);
+    color: var(--color-beige);
     box-shadow: 0 8px 20px rgba(139, 0, 0, 0.4);
 }
 
 .card-content {
     padding: var(--spacing-md);
-    background-color: var(--color-cream);
+    background-color: var(--color-beige);
 }
 
 .card-title {
-    font-family: var(--font-display);
+    font-family: var(--font-primary);
     font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: var(--spacing-xs);
@@ -343,7 +381,7 @@ body {
 }
 
 .gallery-card:hover .card-title {
-    color: var(--color-dark-red);
+    color: var(--color-burgundy);
 }
 
 .card-category {
@@ -420,7 +458,7 @@ body {
 }
 
 .lightbox-close:hover {
-    color: var(--color-dark-red);
+    color: var(--color-burgundy);
     transform: scale(1.2);
 }
 
@@ -461,7 +499,7 @@ body {
 
 .lightbox-info {
     text-align: center;
-    color: var(--color-cream);
+    color: var(--color-beige);
     animation: slideUp 0.4s ease-out 0.2s both;
 }
 
@@ -477,7 +515,7 @@ body {
 }
 
 .lightbox-title {
-    font-family: var(--font-display);
+    font-family: var(--font-primary);
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: var(--spacing-xs);
@@ -486,32 +524,63 @@ body {
 
 .lightbox-category {
     font-size: 1rem;
-    color: var(--color-cream);
+    color: var(--color-beige);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 /* ============================================
-   FOOTER
+   FOOTER (ESTILO JIM TATTOO INK)
    ============================================ */
 
 .footer {
-    background: linear-gradient(135deg, var(--color-black) 0%, #1a1a1a 100%);
-    color: var(--color-cream);
-    padding: var(--spacing-lg) var(--spacing-md);
-    text-align: center;
-    border-top: 3px solid var(--color-gold);
-    margin-top: var(--spacing-xl);
+    background-color: var(--color-black);
+    color: var(--color-beige);
+    padding: var(--spacing-xl) 2rem var(--spacing-md);
 }
 
-.footer p {
-    margin-bottom: var(--spacing-sm);
-    font-size: 0.95rem;
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-large);
+    margin-bottom: var(--spacing-large);
 }
 
-.footer-contact {
+.footer-section h3,
+.footer-section h4 {
     color: var(--color-gold);
-    font-weight: 600;
+    margin-bottom: var(--spacing-medium);
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+}
+
+.contact-link {
+    color: var(--color-beige);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+}
+
+.contact-link:hover {
+    color: var(--color-gold);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--color-grey);
+    padding-top: var(--spacing-medium);
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* ============================================
@@ -519,12 +588,20 @@ body {
    ============================================ */
 
 @media (max-width: 768px) {
-    .logo {
-        font-size: 2rem;
+    .nav-links {
+        gap: 1rem;
     }
     
-    .tagline {
-        font-size: 0.95rem;
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .gallery-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .gallery-hero p {
+        font-size: 1.1rem;
     }
     
     .section-title {
@@ -571,20 +648,31 @@ body {
 }
 
 @media (max-width: 480px) {
-    .header {
-        padding: var(--spacing-lg) var(--spacing-sm);
+    .nav {
+        padding: 0 1rem;
+        flex-direction: column;
+        gap: 1rem;
     }
     
-    .logo {
-        font-size: 1.5rem;
+    .nav-links {
+        gap: 0.5rem;
     }
     
-    .main-content {
-        padding: var(--spacing-lg) var(--spacing-sm);
+    .gallery-hero {
+        padding: 3rem 1rem;
+        padding-top: 120px;
+    }
+    
+    .gallery-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .gallery-section {
+        padding: 0 1rem 2rem;
     }
     
     .filters-section {
-        margin-bottom: var(--spacing-lg);
+        padding: 1rem 1rem 0;
     }
     
     .section-title {
@@ -638,7 +726,7 @@ body {
 }
 
 /* ============================================
-   ACCESIBILIDAD Y UTILIDADES
+   ACCESIBILIDAD
    ============================================ */
 
 button:focus {
@@ -653,11 +741,3 @@ button:focus {
         transition-duration: 0.01ms !important;
     }
 }
-
-/* Scroll suave para navegación */
-@supports (scroll-behavior: smooth) {
-    html {
-        scroll-behavior: smooth;
-    }
-}
-

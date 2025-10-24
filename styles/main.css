@@ -32,6 +32,7 @@ body {
   background-color: var(--color-beige);
   color: var(--color-dark);
   line-height: 1.6;
+  padding-top: 80px; /* Espacio para el header fixed */
 }
 
 /* ===== ESTILOS DE TEXTO ===== */
@@ -87,49 +88,6 @@ h2 {
   color: white;
 }
 
-/* ===== HEADER Y NAVEGACIÓN ===== */
-.header {
-  background-color: var(--color-black);
-  padding: 1rem 0;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.logo {
-  color: var(--color-beige);
-  font-family: var(--font-primary);
-  font-size: 1.8rem;
-  font-weight: 700;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-.nav-links a {
-  color: var(--color-beige);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: var(--color-gold);
-}
-
 /* ===== HERO SECTION ===== */
 .hero {
   background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-black) 100%);
@@ -141,6 +99,8 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: -80px; /* Compensa el padding del body */
+  padding-top: 120px; /* Extra espacio para que no quede tapado */
 }
 
 .hero h1 {
@@ -171,67 +131,6 @@ h2 {
   color: var(--color-gold);
 }
 
-/* === PRUEBA DE COLORES (para verificar) === */
-.color-test {
-  padding: 2rem;
-  margin: 1rem;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  min-width: 200px;
-  display: inline-block;
-}
-
-.colors-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
-}
-/* Agrega esto al final de tu main.css */
-body {
-  padding-top: 80px; /* Para que el contenido no quede detrás del header fixed */
-}
-
-.hero {
-  margin-top: -80px; /* Compensa el padding del body */
-}
-/* ===== CORRECCIÓN HEADER FIXED ===== */
-body {
-  padding-top: 80px; /* Espacio para el header fixed */
-}
-
-.hero {
-  margin-top: -80px; /* Compensa el padding del body */
-  padding-top: 120px; /* Extra espacio para que no quede tapado */
-}
-
-/* ===== MEJORAS VISUALES HEADER ===== */
-.header {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.nav-links a {
-  position: relative;
-  padding: 0.5rem 0;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-gold);
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
 /* ===== SECCIÓN SOBRE MÍ ===== */
 .about-container {
     display: grid;
@@ -279,6 +178,7 @@ body {
     font-style: italic;
     border: 3px dashed var(--color-gold);
 }
+
 /* ===== FOOTER ===== */
 .footer {
     background-color: var(--color-black);
@@ -329,16 +229,10 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 /* ===== MEJORAS HERO SECTION ===== */
 .hero {
     position: relative;
-    background: linear-gradient(135deg, 
-        rgba(26, 26, 26, 0.9) 0%, 
-        rgba(0, 0, 0, 0.95) 100%),
-        url('../images/backgrounds/hero-bg.jpg'); /* Cambiar por tu imagen */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
 }
 
 .hero h1 {
@@ -365,14 +259,21 @@ body {
     }
 }
 
-/* Placeholder para cuando no hay imagen de fondo */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-black) 100%);
-    z-index: -1;
+/* Responsive */
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
 }

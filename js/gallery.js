@@ -15,9 +15,12 @@ const appState = {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Inicializando galería...');
     initializeGallery();
     setupEventListeners();
     updateLightboxImages();
+    setupTouchGestures();
+    setupSmoothScroll();
 });
 
 /**
@@ -34,26 +37,32 @@ function initializeGallery() {
 function setupEventListeners() {
     // Event listeners para botones de filtro
     const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(button => {
-        button.addEventListener('click', handleFilterClick);
-    });
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', handleFilterClick);
+        });
+        console.log(`${filterButtons.length} botones de filtro configurados`);
+    } else {
+        console.warn('No se encontraron botones de filtro');
+    }
 
-    // Event listeners para botones de ver obra
-    const viewButtons = document.querySelectorAll('.view-btn');
-    viewButtons.forEach(button => {
-        button.addEventListener('click', handleViewClick);
+    // Event listeners para botones de ver obra (delegación)
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.view-btn')) {
+            handleViewClick(e);
+        }
     });
 
     // Event listeners para lightbox
-    const lightbox = document.getElementById('lightbox');
     const lightboxClose = document.querySelector('.lightbox-close');
     const lightboxPrev = document.querySelector('.lightbox-prev');
     const lightboxNext = document.querySelector('.lightbox-next');
+    const lightbox = document.getElementById('lightbox');
 
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightboxPrev.addEventListener('click', showPreviousImage);
-    lightboxNext.addEventListener('click', showNextImage);
-    lightbox.addEventListener('click', handleLightboxBackgroundClick);
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxPrev) lightboxPrev.addEventListener('click', showPreviousImage);
+    if (lightboxNext) lightboxNext.addEventListener('click', showNextImage);
+    if (lightbox) lightbox.addEventListener('click', handleLightboxBackgroundClick);
 
     // Navegación con teclado
     document.addEventListener('keydown', handleKeyboardNavigation);
@@ -86,23 +95,35 @@ function handleFilterClick(event) {
  * Filtra las tarjetas de la galería según la categoría seleccionada
  */
 function filterGallery(filterValue) {
+    let visibleCount = 0;
+    
     appState.galleryCards.forEach(card => {
         const cardCategory = card.getAttribute('data-category');
         
         if (filterValue === 'todos' || cardCategory === filterValue) {
             // Mostrar tarjeta
-            card.classList.remove('hidden');
             card.style.display = 'block';
-            // Trigger reflow para que la animación funcione
+            card.classList.remove('hidden');
+            visibleCount++;
+            
+            // Trigger reflow para animación
             void card.offsetWidth;
-            card.style.animation = 'scaleIn 0.5s ease-out forwards';
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.8)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.3s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+            }, 10);
         } else {
             // Ocultar tarjeta
-            card.style.animation = 'none';
-            card.classList.add('hidden');
             card.style.display = 'none';
+            card.classList.add('hidden');
         }
     });
+    
+    console.log(`Filtro "${filterValue}" aplicado - ${visibleCount} elementos visibles`);
 }
 
 // ============================================
@@ -115,11 +136,20 @@ function filterGallery(filterValue) {
 function updateLightboxImages() {
     appState.lightboxImages = appState.galleryCards
         .filter(card => !card.classList.contains('hidden'))
-        .map(card => ({
-            src: card.querySelector('.card-image').src,
-            title: card.querySelector('.card-title').textContent,
-            category: card.querySelector('.card-category').textContent
-        }));
+        .map(card => {
+            const img = card.querySelector('.card-image');
+            const title = card.querySelector('.card-title');
+            const category = card.querySelector('.card-category');
+            
+            return {
+                src: img ? img.src : '',
+                title: title ? title.textContent : 'Sin título',
+                category: category ? category.textContent : 'Sin categoría',
+                element: card
+            };
+        });
+    
+    console.log(`${appState.lightboxImages.length} imágenes en lightbox`);
 }
 
 /**
@@ -127,15 +157,26 @@ function updateLightboxImages() {
  */
 function handleViewClick(event) {
     event.stopPropagation();
-    const card = event.currentTarget.closest('.gallery-card');
-    const imageIndex = appState.galleryCards.indexOf(card);
+    const card = event.target.closest('.gallery-card');
     
+    if (!card) {
+        console.warn('No se pudo encontrar la tarjeta de galería');
+        return;
+    }
+
     // Encontrar el índice en el array filtrado
+    const cardImage = card.querySelector('.card-image');
+    if (!cardImage) {
+        console.warn('No se encontró imagen en la tarjeta');
+        return;
+    }
+
     const filteredIndex = appState.lightboxImages.findIndex(img => 
-        img.src === card.querySelector('.card-image').src
+        img.src === cardImage.src
     );
     
     appState.currentImageIndex = filteredIndex >= 0 ? filteredIndex : 0;
+    console.log('Abriendo lightbox para imagen:', appState.currentImageIndex);
     openLightbox();
 }
 
@@ -144,9 +185,14 @@ function handleViewClick(event) {
  */
 function openLightbox() {
     const lightbox = document.getElementById('lightbox');
-    lightbox.classList.add('active');
-    displayLightboxImage(appState.currentImageIndex);
+    if (!lightbox) {
+        console.error('Lightbox no encontrado');
+        return;
+    }
+    
+    lightbox.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+    displayLightboxImage(appState.currentImageIndex);
 }
 
 /**
@@ -154,15 +200,21 @@ function openLightbox() {
  */
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
-    lightbox.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    if (lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        console.log('Lightbox cerrado');
+    }
 }
 
 /**
  * Muestra una imagen específica en el lightbox
  */
 function displayLightboxImage(index) {
-    if (appState.lightboxImages.length === 0) return;
+    if (appState.lightboxImages.length === 0) {
+        console.warn('No hay imágenes en el lightbox');
+        return;
+    }
 
     // Asegurar que el índice esté dentro de los límites
     if (index < 0) {
@@ -178,15 +230,18 @@ function displayLightboxImage(index) {
     const lightboxTitle = document.getElementById('lightboxTitle');
     const lightboxCategory = document.getElementById('lightboxCategory');
 
-    // Actualizar contenido con animación
-    lightboxImage.style.animation = 'none';
-    void lightboxImage.offsetWidth; // Trigger reflow
-    lightboxImage.style.animation = 'fadeIn 0.4s ease-out';
-    
+    if (!lightboxImage) {
+        console.error('Elementos del lightbox no encontrados');
+        return;
+    }
+
+    // Actualizar contenido
     lightboxImage.src = currentImage.src;
     lightboxImage.alt = currentImage.title;
-    lightboxTitle.textContent = currentImage.title;
-    lightboxCategory.textContent = currentImage.category;
+    if (lightboxTitle) lightboxTitle.textContent = currentImage.title;
+    if (lightboxCategory) lightboxCategory.textContent = currentImage.category;
+
+    console.log(`Mostrando imagen ${appState.currentImageIndex + 1}/${appState.lightboxImages.length}`);
 }
 
 /**
@@ -218,7 +273,7 @@ function handleLightboxBackgroundClick(event) {
 function handleKeyboardNavigation(event) {
     const lightbox = document.getElementById('lightbox');
     
-    if (!lightbox.classList.contains('active')) return;
+    if (!lightbox || lightbox.style.display !== 'flex') return;
 
     switch(event.key) {
         case 'Escape':
@@ -272,10 +327,11 @@ function isTouchDevice() {
 function setupTouchGestures() {
     if (!isTouchDevice()) return;
 
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
     let touchStartX = 0;
     let touchEndX = 0;
-
-    const lightbox = document.getElementById('lightbox');
 
     lightbox.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
@@ -302,9 +358,6 @@ function setupTouchGestures() {
     }
 }
 
-// Inicializar gestos táctiles cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', setupTouchGestures);
-
 // ============================================
 // LOGGING Y DEBUGGING
 // ============================================
@@ -318,67 +371,10 @@ function logGalleryInfo() {
     console.log('Índice de imagen actual:', appState.currentImageIndex);
     console.log('Total de tarjetas:', appState.galleryCards.length);
     console.log('Imágenes en lightbox:', appState.lightboxImages.length);
-    console.log('Imágenes:', appState.lightboxImages);
+    console.log('Imágenes visibles:', appState.lightboxImages);
 }
 
 // Exponer función de logging en la consola
 window.logGalleryInfo = logGalleryInfo;
 
-document.addEventListener('DOMContentLoaded', () => {
-    const piercings = [
-        {
-            name: 'Piercing de Oreja (Hélix, Tragus, Lóbulo)',
-            description: 'Múltiples piercings en la oreja con joyería blackwork detallada.',
-            image: '../piercing_oreja_blackwork.png'
-        },
-        {
-            name: 'Piercing Facial (Septum, Labret)',
-            description: 'Piercings faciales con joyería blackwork y toques de color.',
-            image: '../piercing_facial_blackwork.png'
-        },
-        {
-            name: 'Joyería Blackwork Variada',
-            description: 'Diversos diseños de joyería blackwork, mostrando detalles y texturas.',
-            image: '../joyeria_blackwork_detallada.png'
-        },
-        {
-            name: 'Piercing Industrial',
-            description: 'Un piercing industrial que conecta dos perforaciones en el cartílago superior de la oreja con una barra recta, ideal para joyería blackwork minimalista.',
-            image: 'https://via.placeholder.com/400x400/000000/F5F1E8?text=Industrial'
-        },
-        {
-            name: 'Piercing Daith',
-            description: 'Un piercing en el pliegue más interno del cartílago de la oreja, a menudo asociado con la reducción de migrañas, perfecto para aros blackwork intrincados.',
-            image: 'https://via.placeholder.com/400x400/000000/F5F1E8?text=Daith'
-        },
-        {
-            name: 'Piercing Rook',
-            description: 'Ubicado en el pliegue superior del cartílago interior de la oreja, un piercing Rook es sutil y elegante, complementado con pequeñas joyas blackwork curvas.',
-            image: 'https://via.placeholder.com/400x400/000000/F5F1E8?text=Rook'
-        },
-        {
-            name: 'Piercing de Lengua',
-            description: 'Un piercing central en la lengua, generalmente con una barra recta. Aunque no es visible externamente, la elección de una bola superior blackwork añade un toque personal.',
-            image: 'https://via.placeholder.com/400x400/000000/F5F1E8?text=Lengua'
-        },
-        {
-            name: 'Piercing de Ceja',
-            description: 'Un piercing vertical a través de la ceja, que puede realzar la expresión facial. Joyería blackwork en forma de barra curva o aro pequeño.',
-            image: 'https://via.placeholder.com/400x400/000000/F5F1E8?text=Ceja'
-        }
-    ];
-
-    const galleryContainer = document.querySelector('.gallery-container');
-
-    piercings.forEach(piercing => {
-        const galleryItem = document.createElement('div');
-        galleryItem.classList.add('gallery-item');
-        galleryItem.innerHTML = `
-            <img src="${piercing.image}" alt="${piercing.name}">
-            <h4>${piercing.name}</h4>
-            <p>${piercing.description}</p>
-        `;
-        galleryContainer.appendChild(galleryItem);
-    });
-});
-
+// REMOVER LA PARTE DE PIERCINGS - eso debe ir en piercings.html

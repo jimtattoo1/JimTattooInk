@@ -581,3 +581,215 @@ table td {
         bottom: 80px;
     }
 }
+/* =========================================== */
+/* SECCIÓN RESEÑAS FLOTANTES VERIFICADAS */
+/* =========================================== */
+
+.reviews-section {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-section .section-title {
+    color: var(--color-gold);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.reviews-subtitle {
+    text-align: center;
+    color: var(--color-off-white);
+    margin-bottom: 60px;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.reviews-clouds {
+    position: relative;
+    height: 400px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.review-cloud {
+    position: absolute;
+    background: rgba(245, 241, 232, 0.95);
+    border-radius: 50px;
+    padding: 20px 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 2px solid var(--color-gold);
+    max-width: 280px;
+    animation: float 6s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+.review-cloud:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+    z-index: 10;
+}
+
+.cloud-content p {
+    color: var(--color-black);
+    font-style: italic;
+    margin: 10px 0;
+    line-height: 1.4;
+    font-size: 0.95em;
+}
+
+/* Encabezado de reseña verificado */
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.75em;
+}
+
+.verified-badge {
+    background: var(--color-gold);
+    color: var(--color-black);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 0.7em;
+}
+
+.review-source {
+    color: var(--color-dark-red);
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
+/* Información del cliente */
+.client-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 0.8em;
+    border-top: 1px solid #ddd;
+    padding-top: 8px;
+}
+
+.client-name {
+    color: var(--color-dark-red);
+    font-weight: bold;
+}
+
+.review-date {
+    color: #666;
+    font-style: italic;
+}
+
+/* Posiciones y animaciones individuales de las nubes */
+.cloud-1 {
+    top: 5%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.cloud-2 {
+    top: 8%;
+    right: 12%;
+    animation-delay: 1.5s;
+}
+
+.cloud-3 {
+    bottom: 10%;
+    left: 15%;
+    animation-delay: 3s;
+}
+
+.cloud-4 {
+    bottom: 10%;
+    right: 8%;
+    animation-delay: 4.5s;
+}
+
+/* Animación de flotar */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-12px) rotate(1deg);
+    }
+    66% {
+        transform: translateY(8px) rotate(-1deg);
+    }
+}
+
+/* CTA para más reseñas */
+.reviews-cta {
+    text-align: center;
+    margin-top: 60px;
+    padding: 30px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 15px;
+    border: 1px solid var(--color-gold);
+}
+
+.reviews-cta p {
+    color: var(--color-off-white);
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.review-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.review-links .btn {
+    padding: 12px 25px;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reviews-clouds {
+        height: auto;
+        min-height: 600px;
+    }
+    
+    .review-cloud {
+        position: relative;
+        margin: 25px auto;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        animation: float-mobile 4s ease-in-out infinite;
+        max-width: 90%;
+    }
+    
+    @keyframes float-mobile {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+    
+    .review-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .review-links .btn {
+        width: 200px;
+    }
+    
+    .reviews-section .section-title {
+        font-size: 2em;
+    }
+}

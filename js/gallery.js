@@ -32,6 +32,7 @@ function initializeGallery() {
 }
 
 /**
+/**
  * Configura todos los event listeners
  */
 function setupEventListeners() {
@@ -43,7 +44,8 @@ function setupEventListeners() {
         });
         console.log(`${filterButtons.length} botones de filtro configurados`);
     } else {
-        console.warn('No se encontraron botones de filtro');
+        console.warn('No se encontraron botones de filtro - creando botones por defecto');
+        createDefaultFilterButtons(); // AÑADIR ESTA FUNCIÓN
     }
 
     // Event listeners para botones de ver obra (delegación)
@@ -63,9 +65,112 @@ function setupEventListeners() {
     if (lightboxPrev) lightboxPrev.addEventListener('click', showPreviousImage);
     if (lightboxNext) lightboxNext.addEventListener('click', showNextImage);
     if (lightbox) lightbox.addEventListener('click', handleLightboxBackgroundClick);
+}
 
-    // Navegación con teclado
-    document.addEventListener('keydown', handleKeyboardNavigation);
+/**
+ * Crea botones de filtro por defecto cuando no se encuentran
+ */
+function createDefaultFilterButtons() {
+    console.log('Creando botones de filtro por defecto...');
+    
+    // 1. Buscar donde poner los botones - ESPECÍFICAMENTE en la galería
+    let filterContainer = document.querySelector('.filter-buttons');
+    
+    // 2. Si no existe contenedor, crearlo en un lugar ESPECÍFICO
+    if (!filterContainer) {
+        filterContainer = document.createElement('div');
+        filterContainer.className = 'filter-buttons';
+        filterContainer.style.textAlign = 'center';
+        filterContainer.style.margin = '20px 0';
+        filterContainer.style.padding = '10px';
+        
+        // Buscar DONDE ESPECÍFICO insertar el contenedor
+        const gallery = document.querySelector('.gallery');
+        
+        if (gallery) {
+            // Insertar ANTES de la galería, no al principio de todo
+            gallery.parentNode.insertBefore(filterContainer, gallery);
+        } else {
+            // Si no hay galería, ponerlo en un lugar menos disruptivo
+            const main = document.querySelector('main') || document.body;
+            const firstChild = main.firstChild;
+            if (firstChild) {
+                main.insertBefore(filterContainer, firstChild.nextSibling);
+            } else {
+                main.appendChild(filterContainer);
+            }
+        }
+    }
+    
+    // 3. Crear botones de filtro por defecto
+    const defaultFilters = [
+        { text: 'Todos', filter: 'all' },
+        { text: 'Blackwork', filter: 'blackwork' },
+        { text: 'Tradicional', filter: 'tradicional' },
+        { text: 'Realismo', filter: 'realismo' },
+        { text: 'Geométrico', filter: 'geometrico' }
+    ];
+    
+    defaultFilters.forEach(filterObj => {
+        const button = document.createElement('button');
+        button.className = 'filter-btn';
+        button.setAttribute('data-filter', filterObj.filter);
+        button.textContent = filterObj.text;
+        button.style.margin = '5px';
+        button.style.padding = '8px 16px';
+        button.style.backgroundColor = '#333';
+        button.style.color = 'white';
+        button.style.border = 'none';
+        button.style.borderRadius = '4px';
+        button.style.cursor = 'pointer';
+        button.addEventListener('click', handleFilterClick);
+        filterContainer.appendChild(button);
+    });
+    
+    console.log(`${defaultFilters.length} botones de filtro creados por defecto`);
+    return filterContainer;
+}
+/**
+ * Maneja el clic en los botones de filtro
+ */
+function handleFilterClick(event) {
+    const filter = event.target.getAttribute('data-filter');
+    console.log(`Filtrando por: ${filter}`);
+    
+    // Remover clase active de todos los botones
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Añadir clase active al botón clickeado
+    event.target.classList.add('active');
+    
+    // Lógica de filtrado
+    filterGallery(filter);
+}
+/**
+ * Filtra la galería según el filtro seleccionado
+ */
+function filterGallery(filter) {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    let visibleCount = 0;
+    
+    galleryItems.forEach(item => {
+        if (filter === 'all') {
+            item.style.display = 'block';
+            visibleCount++;
+        } else {
+            const itemCategory = item.getAttribute('data-category');
+            if (itemCategory === filter) {
+                item.style.display = 'block';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        }
+    });
+    
+    console.log(`${visibleCount} elementos mostrados con filtro: ${filter}`);
 }
 
 // ============================================

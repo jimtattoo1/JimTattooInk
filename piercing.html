@@ -6,26 +6,37 @@
     <title>Piercing Profesional - Jim Tattoo Ink | Barcelona</title>
     <meta name="description" content="Piercing profesional en Barcelona con acero quirúrgico y bioflex. Técnica segura con aguja catéter y materiales de primera calidad.">
     
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/components.css">
+    <!-- ENLACE A ESTILOS CONSOLIDADOS (Ruta corregida a absoluta) -->
+    <link rel="stylesheet" href="./style.css">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <a href="../index.html" class="logo">
-                <img src="../images/logos/logo 1.png" alt="Jim Tattoo Ink" class="logo-img">
-            </a>
-            <nav class="nav">
-                <ul class="nav-links">
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="gallery.html">Tatuajes</a></li>
-                    <li><a href="piercings.html" class="active">Piercings</a></li>
-                    <li><a href="../index.html#sobre-mi">Sobre Mí</a></li>
-                    <li><a href="../index.html#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span>JIM TATTOO INK</span>
+            </div>
+            
+            <!-- Menú para móvil -->
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Menú de navegación -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#inicio">INICIO</a></li>
+                <li><a href="gallery.html">TATUAJES</a></li>
+                <li><a href="piercing.html" class="active">PIERCINGS</a></li>
+                <li><a href="cuidados.html">CUIDADOS</a></li> <!-- NUEVA SECCIÓN -->
+                <li><a href="index.html#sobre-mi">SOBRE MÍ</a></li>
+                <li><a href="index.html#contacto">CONTACTO</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="main-content">
@@ -39,13 +50,13 @@
             </section>
 
             <!-- Grid de Piercings con Imágenes -->
-            <section class="piercings-showcase">
+            <section class="section">
                 <h2 class="section-title">Tipos de Piercing</h2>
                 <div class="piercings-grid-enhanced">
                     <!-- Nariz -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="../images/gallery/piercings/nariz.jpg/1.jpg" alt="Piercing de Nariz" class="piercing-image">
+                            <img src="images/gallery/piercings/nariz.jpg/1.jpg" alt="Piercing de Nariz" class="piercing-image">
                             <div class="piercing-overlay">
                                 <span class="view-text">Ver Detalles</span>
                             </div>
@@ -60,7 +71,7 @@
                     <!-- Surface -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="../images/gallery/piercings/surface.jpg" alt="Piercing Surface" class="piercing-image">
+                            <img src="images/gallery/piercings/surface.jpg" alt="Piercing Surface" class="piercing-image">
                             <div class="piercing-overlay">
                                 <span class="view-text">Ver Detalles</span>
                             </div>
@@ -75,7 +86,7 @@
                     <!-- Lengua -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="../images/gallery/piercings/lengua.jpg/1.webp" alt="Piercing de Lengua" class="piercing-image">
+                            <img src="images/gallery/piercings/lengua.jpg/1.webp" alt="Piercing de Lengua" class="piercing-image">
                             <div class="piercing-overlay">
                                 <span class="view-text">Ver Detalles</span>
                             </div>
@@ -90,7 +101,7 @@
                     <!-- Ombligo -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="../images/gallery/piercings/ombligo.jpg/1.webp" alt="Piercing de Ombligo" class="piercing-image">
+                            <img src="images/gallery/piercings/ombligo.jpg/1.webp" alt="Piercing de Ombligo" class="piercing-image">
                             <div class="piercing-overlay">
                                 <span class="view-text">Ver Detalles</span>
                             </div>
@@ -105,7 +116,7 @@
                     <!-- Pezón -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="../images/gallery/piercings/pezon.jpg" alt="Piercing de Pezón" class="piercing-image">
+                            <img src="images/gallery/piercings/pezon.jpg" alt="Piercing de Pezón" class="piercing-image">
                             <div class="piercing-overlay">
                                 <span class="view-text">Ver Detalles</span>
                             </div>
@@ -120,7 +131,7 @@
                     <!-- Oreja -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="../images/gallery/piercings/oreja.jpg/1.jpg" alt="Piercing Oreja" class="piercing-image">
+                            <img src="images/gallery/piercings/oreja.jpg/1.jpg" alt="Piercing Oreja" class="piercing-image">
                             <div class="piercing-overlay">
                                 <span class="view-text">Ver Detalles</span>
                             </div>
@@ -135,7 +146,7 @@
                     <!-- Microdermal -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="../images/gallery/piercings/microdermal.jpg/2.webp" alt="Piercing Microdermal" class="piercing-image">
+                            <img src="images/gallery/piercings/microdermal.jpg/2.webp" alt="Piercing Microdermal" class="piercing-image">
                             <div class="piercing-overlay">
                                 <span class="view-text">Ver Detalles</span>
                             </div>
@@ -150,7 +161,7 @@
                     <!-- Microdermal 2 -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="../images/gallery/piercings/microdermal.jpg/1.webp" alt="Piercing Microdermal" class="piercing-image">
+                            <img src="images/gallery/piercings/microdermal.jpg/1.webp" alt="Piercing Microdermal" class="piercing-image">
                             <div class="piercing-overlay">
                                 <span class="view-text">Ver Detalles</span>
                             </div>
@@ -166,13 +177,16 @@
 
             <!-- Información de Seguridad y Materiales -->
             <section class="safety-section">
+                <div class="container">
+                    <h2 class="section-title" style="color: var(--color-burgundy);">Higiene y Seguridad Garantizada</h2>
+                </div>
                 <div class="safety-grid">
                     <!-- Proceso Seguro -->
                     <div class="safety-card">
                         <div class="safety-icon">🩺</div>
                         <h3>Proceso Seguro</h3>
                         <p class="safety-text">
-                            En Jimtattooink Barcelona, la higiene es lo primero. Realizamos tu piercing con aguja (nunca pistola), utilizando la técnica de catéter y material nuevo de un solo uso para una perforación segura y precisa.
+                            En Jimtattooink Barcelona, la higiene es lo primero. Realizamos tu piercing con aguja (**nunca pistola**), utilizando la técnica de catéter y material nuevo de un solo uso para una perforación segura y precisa, en cumplimiento con el **Decreto 90/2008**.
                         </p>
                     </div>
 
@@ -181,7 +195,7 @@
                         <div class="safety-icon">💎</div>
                         <h3>Materiales Premium</h3>
                         <p class="safety-text">
-                            Solo trabajamos con joyería de primera calidad: acero quirúrgico para las piezas iniciales y el ligero plástico Bioflex para piercings específicos, garantizando un cuidado óptimo y máxima biocompatibilidad.
+                            Solo trabajamos con joyería de primera calidad: **Acero Quirúrgico 316L** o **Bioflex** para las piezas iniciales, garantizando un cuidado óptimo y máxima biocompatibilidad. Todas las joyas están esterilizadas y listas para su uso.
                         </p>
                     </div>
                 </div>
@@ -190,41 +204,64 @@
             <!-- CTA Simple -->
             <section class="piercing-cta-simple">
                 <div class="cta-simple-content">
-                    <h3>¿Interesado en un piercing?</h3>
-                    <p>Consulta disponibilidad y resuelve tus dudas a través de nuestros canales de contacto</p>
-                    <a href="../index.html#contacto" class="btn btn-primary">Ver Contacto</a>
+                    <h3>¿Listo para tu nuevo piercing?</h3>
+                    <p>Consulta nuestros cuidados post-sesión o contacta para agendar tu cita.</p>
+                    <a href="cuidados.html#piercings" class="btn btn-secondary" style="margin-right: 1rem;">Ver Cuidados</a>
+                    <a href="index.html#contacto" class="btn btn-primary">Reservar Cita</a>
                 </div>
             </section>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="footer" id="contacto">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Jim Tattoo Ink</h3>
                 <p>Especialista en Blackwork<br>Barcelona, España</p>
             </div>
+            
             <div class="footer-section">
                 <h4>Contacto</h4>
                 <div class="contact-links">
-                    <a href="https://wa.me/34615796188" class="contact-link">📱 WhatsApp</a>
-                    <a href="https://instagram.com/jimtattooink" class="contact-link">📸 Instagram</a>
-                    <a href="jimtattootatuajes@gmail.com" class="contact-link">✉️ Email</a>
+                    <a href="https://wa.me/34615796188" class="contact-link">
+                        📱 WhatsApp
+                    </a>
+                    <a href="https://instagram.com/jimtattooink" class="contact-link">
+                        📸 Instagram
+                    </a>
+                    <a href="mailto:jimtattootatuajes@gmail.com" class="contact-link">
+                        ✉️ Email
+                    </a>
                 </div>
             </div>
+            
             <div class="footer-section">
                 <h4>Horario</h4>
-                <p>Lun-Vie: 10:00-22:00<br>Sáb: 11:00-22:00<br>Dom: 11:00-20:00</p>
+                <p>Lunes a Viernes: 10:00 - 22:00<br>
+                   Sábados: 11:00 - 22:00<br>
+                   Domingos: 11:00 - 20:00</p>
             </div>
         </div>
+        
         <div class="footer-bottom">
+            <div class="footer-legal-links">
+                <a href="legal.html#privacidad">Política de Privacidad</a>
+                <a href="legal.html#cookies">Política de Cookies</a>
+                <a href="legal.html#menores">Menores de Edad</a>
+                <a href="legal.html#higiene">Normas de Higiene</a>
+            </div>
             <p>&copy; 2024 Jim Tattoo Ink. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- SCRIPTS COMPLETOS -->
-<script src="../js/gallery.js"></script>
-<script src="../js/lightbox.js"></script>
-<script src="../js/main.js"></script>
+    <!-- SCRIPTS (Rutas corregidas a absoluta) -->
+    <script src="./js/main.js"></script>
+    <script>
+        // Funcionalidad de menú responsive (Mantenida en main.js)
+        // document.getElementById('navToggle').addEventListener('click', function() {
+        //     document.getElementById('navMenu').classList.toggle('active');
+        // });
+    </script>
 </body>
 </html>

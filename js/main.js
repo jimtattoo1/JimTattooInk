@@ -206,8 +206,8 @@ class ChatBot {
             <div class="chatbot-widget" id="chatbotWidget">
                 <div class="chatbot-header">
                     <div class="chatbot-avatar">
-    <img src="images/logos/chatbot.png" alt="Jim Tattoo Logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
-</div>
+                        <img src="images/logos/chatbot.png" alt="Jim Tattoo Logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                    </div>
                     <div class="chatbot-info">
                         <h4>Jim Tattoo Assistant</h4>
                         <p>En línea</p>
@@ -228,7 +228,6 @@ class ChatBot {
                     ${initialQuestionsHTML}
                 </div>
             </div>
-            
             <button class="chatbot-toggle" id="chatbotToggle">
                 <span>💬</span>
             </button>
@@ -264,7 +263,16 @@ class ChatBot {
             }
         });
 
-        console.log('✅ Chatbot inicializado correctamente');
+        // Asegurar que el menú responsive funcione en todas las páginas
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        console.log('✅ Chatbot y menú responsive inicializados correctamente');
     }
 
     toggleChat() {

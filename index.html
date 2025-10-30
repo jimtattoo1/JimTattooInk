@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <style>
-/* ESTILOS MEJORADOS PARA EL CHATBOT - COLORES CLAROS */
+/* ESTILOS CHATBOT INLINE (MANTENIDOS) */
 .bot-message {
     background-color: #f8f9fa !important;
     color: #333 !important;
@@ -22,7 +22,7 @@
 }
 
 .bot-message li strong {
-    color: #d4af37 !important;
+    color: var(--color-gold) !important; /* Usar variable CSS si está disponible */
 }
 </style>
 <head>
@@ -31,31 +31,38 @@
     <title>Jim Tattoo Ink - Estudio de Tatuajes Blackwork en Barcelona</title>
     <meta name="description" content="Estudio profesional de tatuajes blackwork y piercings en Barcelona. Diseños únicos y personalizados con máxima higiene y calidad artística.">
     
-    <!-- ENLACE A NUESTROS ESTILOS -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/gallery.css">
+    <!-- ENLACE A ESTILOS CONSOLIDADOS (Ruta corregida a absoluta) -->
+    <link rel="stylesheet" href="./style.css">
     
     <!-- Google Fonts CORREGIDO -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Header CORREGIDO -->
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="images/logos/logo 1.png" alt="Jim Tattoo Ink" class="logo-img">
-            </a>
-<nav class="nav">
-    <ul class="nav-links">
-        <li><a href="index.html" class="active">Inicio</a></li>
-        <li><a href="pages/gallery.html">Tatuajes</a></li>
-        <li><a href="pages/piercings.html">Piercings</a></li>  <!-- ← ASÍ QUEDA -->
-        <li><a href="#sobre-mi">Sobre Mí</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-    </ul>
-</nav>
-        </div>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span>JIM TATTOO INK</span>
+            </div>
+            
+            <!-- Menú para móvil -->
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Menú de navegación -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="active">INICIO</a></li>
+                <li><a href="gallery.html">TATUAJES</a></li>
+                <li><a href="piercing.html">PIERCINGS</a></li>
+                <li><a href="cuidados.html">CUIDADOS</a></li> <!-- NUEVA SECCIÓN -->
+                <li><a href="#sobre-mi">SOBRE MÍ</a></li>
+                <li><a href="#contacto">CONTACTO</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -98,7 +105,8 @@
             </div>
         </div>
     </section>
-        <!-- Sección de Reseñas Flotantes VERIFICADAS -->
+        
+    <!-- Sección de Reseñas Flotantes VERIFICADAS -->
     <section class="reviews-section" id="reseñas">
         <div class="container">
             <h2 class="section-title">Lo que dicen nuestros clientes</h2>
@@ -106,7 +114,7 @@
             
             <div class="reviews-clouds">
                 <!-- Nube 1 con verificación -->
-                <div class="review-cloud cloud-1 verified">
+                <div class="review-cloud cloud-1 verified" style="top: 5%; left: 8%;">
                     <div class="cloud-content">
                         <div class="review-header">
                             <span class="verified-badge">✓ Verificado</span>
@@ -121,7 +129,7 @@
                 </div>
                 
                 <!-- Nube 2 con verificación -->
-                <div class="review-cloud cloud-2">
+                <div class="review-cloud cloud-2" style="top: 8%; right: 12%;">
                     <div class="cloud-content">
                         <div class="review-header">
                             <span class="verified-badge">✓ Verificado</span>
@@ -136,7 +144,7 @@
                 </div>
                 
                 <!-- Nube 3 con verificación -->
-                <div class="review-cloud cloud-3">
+                <div class="review-cloud cloud-3" style="bottom: 10%; left: 15%;">
                     <div class="cloud-content">
                         <div class="review-header">
                             <span class="verified-badge">✓ Verificado</span>
@@ -151,7 +159,7 @@
                 </div>
                 
                 <!-- Nube 4 con verificación -->
-                <div class="review-cloud cloud-4">
+                <div class="review-cloud cloud-4" style="bottom: 10%; right: 8%;">
                     <div class="cloud-content">
                         <div class="review-header">
                             <span class="verified-badge">✓ Verificado</span>
@@ -178,6 +186,7 @@
             </div>
         </div>
     </section>
+    
     <!-- Footer -->
     <footer class="footer" id="contacto">
         <div class="footer-content">
@@ -195,7 +204,7 @@
                     <a href="https://instagram.com/jimtattooink" class="contact-link">
                         📸 Instagram
                     </a>
-                    <a href="jimtattootatuajes@gmail.com" class="contact-link">
+                    <a href="mailto:jimtattootatuajes@gmail.com" class="contact-link">
                         ✉️ Email
                     </a>
                 </div>
@@ -210,13 +219,23 @@
         </div>
         
         <div class="footer-bottom">
+            <div class="footer-legal-links">
+                <a href="legal.html#privacidad">Política de Privacidad</a>
+                <a href="legal.html#cookies">Política de Cookies</a>
+                <a href="legal.html#menores">Menores de Edad</a>
+                <a href="legal.html#higiene">Normas de Higiene</a>
+            </div>
             <p>&copy; 2024 Jim Tattoo Ink. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <!-- SCRIPTS -->
-<script src="../js/gallery.js"></script>
-<script src="../js/lightbox.js"></script>
-<script src="../js/main.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        // Funcionalidad de menú responsive (Mantenida en main.js)
+        // document.getElementById('navToggle').addEventListener('click', function() {
+        //     document.getElementById('navMenu').classList.toggle('active');
+        // });
+    </script>
 </body>
 </html>

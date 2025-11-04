@@ -1,4 +1,4 @@
-// chatbot.js - Asistente Virtual Jim Tattoo Ink (MEJORADO)
+// js/main.js - Chatbot y Funcionalidad General (Menú Responsive)
 
 // Objeto de configuración para las Preguntas Frecuentes (FAQs)
 const FAQ_CONFIG = [
@@ -24,10 +24,10 @@ const FAQ_CONFIG = [
     {
         id: 3,
         keywords: ['piercing', 'perforación', 'perforar', 'hacen'],
-        response: "Realizamos una amplia variedad de piercings con aguja estéril. Precios iniciales (incluye joya básica): **Nariz (15€)**, **Lengua (20€)**, **Ombligo (20€)**, **Pezón (25€)**, **Industrial (20€)**, **Microdermal (40€)**.",
+        response: "Realizamos una amplia variedad de piercings con aguja estéril. Precios iniciales (incluye joya básica): **Nariz (15€)**, **Lengua (20€)**, **Ombligo (20€)**, **Pezón (25€)**, **Microdermal (30€)**.",
         actions: [
             { text: "📍 Ver Cuidados Piercing", action: "cuidados_piercing" },
-            { text: "Cambio de Joya", action: "cambio_joya" }
+            { text: "Ver Galería Piercings", action: "link_piercing" }
         ]
     },
     {
@@ -44,7 +44,7 @@ const FAQ_CONFIG = [
         keywords: ['ubicación', 'dónde', 'dirección', 'local', 'estudio', 'barcelona'],
         response: "Estamos en **Barcelona, España**. Recuerda que trabajamos **únicamente con cita previa**. Por favor, contáctanos antes de visitarnos.",
         actions: [
-            { text: "🗺️ Ver Contacto Completo", action: "contact" }
+            { text: "🗺️ Ver Contacto Completo", action: "link_contacto" }
         ]
     },
     {
@@ -52,7 +52,7 @@ const FAQ_CONFIG = [
         keywords: ['cuidado', 'curación', 'limpieza', 'post', 'piercing'],
         response: "Para el cuidado de tu piercing: Limpia **2-3 veces al día** con solución salina estéril. **No gires la joya** y evita piscinas. La curación toma de 6 semanas a 6 meses según la zona.",
         actions: [
-            { text: "Productos de Limpieza", action: "productos_limpieza" },
+            { text: "Ver Guía Completa", action: "link_cuidados" },
             { text: "Síntomas de Irritación", action: "irritacion" }
         ]
     },
@@ -61,7 +61,7 @@ const FAQ_CONFIG = [
         keywords: ['cuidado', 'curación', 'limpieza', 'post', 'tattoo', 'tatuaje'],
         response: "Para el cuidado de tu tatuaje: Retira el vendaje tras 2-3 horas. Lava con jabón neutro, seca con toques y aplica crema específica **2-3 veces al día**. **Evita el sol y piscinas** por 2 semanas.",
         actions: [
-            { text: "Infección Tatuaje", action: "infeccion_tatuaje" },
+            { text: "Ver Guía Completa", action: "link_cuidados" },
             { text: "Retoques", action: "retoques" }
         ]
     },
@@ -70,7 +70,6 @@ const FAQ_CONFIG = [
         keywords: ['irritación', 'hinchazón', 'rojo', 'molestia'],
         response: "Una hinchazón leve o enrojecimiento inicial es normal. Aplica compresas frías y solución salina. **Si tienes dolor intenso, pus o fiebre**, consulta a un médico inmediatamente. ¡Tu salud es lo primero!",
         actions: [
-            { text: "Cuidados Piercing", action: "cuidados_piercing" },
             { text: "Contactar a Jim", action: "whatsapp" }
         ]
     },
@@ -90,7 +89,6 @@ const FAQ_CONFIG = [
             { text: "Reservar Cita", action: "whatsapp" }
         ]
     },
-    // Nuevas respuestas añadidas para mejorar la cobertura
     {
         id: 11,
         keywords: ['depósito', 'reserva', 'pago inicial'],
@@ -109,10 +107,10 @@ const FAQ_CONFIG = [
     },
     {
         id: 13,
-        keywords: ['estilos', 'diseño', 'personalizado', 'copiar'],
-        response: "Jim es un artista que prefiere crear diseños **únicos y personalizados** para ti. Podemos usar referencias, pero tu tatuaje será original. ¿Tienes una idea en mente?",
+        keywords: ['estilos', 'diseño', 'personalizado', 'blackwork'],
+        response: "Jim es un artista que prefiere crear diseños **únicos y personalizados**. Nuestra especialidad es el **Blackwork** (fineline, geométrico, ilustrativo).",
         actions: [
-            { text: "Proceso de Diseño", action: "proceso_diseno" },
+            { text: "Ver Galería", action: "link_gallery" },
             { text: "Contactar a Jim", action: "whatsapp" }
         ]
     },
@@ -121,15 +119,15 @@ const FAQ_CONFIG = [
         keywords: ['higiene', 'seguridad', 'esterilización', 'materiales'],
         response: "Nuestra prioridad es tu seguridad. Usamos un **protocolo de higiene completo**: esterilización con autoclave, agujas y materiales **de un solo uso** y superficies desinfectadas rigurosamente.",
         actions: [
-            { text: "Método de Perforación", action: "metodo_perforacion" }
+            { text: "Ver Normas Legales", action: "link_legal" }
         ]
     },
     {
         id: 15,
         keywords: ['dolor', 'duele', 'sensibilidad', 'anestesia'],
-        response: "El dolor es subjetivo y varía por zona. Zonas como costillas o pies son más sensibles. Si te preocupa, podemos discutir el uso de **crema anestésica** en la consulta.",
+        response: "El dolor es subjetivo. Si te preocupa, podemos discutir el uso de **crema anestésica** en la consulta. Lo más importante es venir descansado y bien alimentado.",
         actions: [
-            { text: "Preparación para la Cita", action: "preparacion_cita" }
+            { text: "Preparación para la Cita", action: "link_cuidados" }
         ]
     },
     {
@@ -143,9 +141,9 @@ const FAQ_CONFIG = [
     {
         id: 17,
         keywords: ['joya', 'material', 'quirúrgico', 'titanio', 'propia'],
-        response: "Para la perforación inicial, recomendamos **Acero Quirúrgico 316L** o **Bioflex**, ambos hipoalergénicos. **No se recomienda** traer tu propia joya, ya que usamos joyería profesional esterilizada.",
+        response: "Para la perforación inicial, recomendamos **Acero Quirúrgico 316L** o **Titanio**, ambos hipoalergénicos. **No se recomienda** traer tu propia joya, ya que usamos joyería profesional esterilizada.",
         actions: [
-            { text: "¿Cuándo cambiar la joya?", action: "cambio_joya" }
+            { text: "Ver Tipos de Piercing", action: "tipos_piercing" }
         ]
     },
     {
@@ -153,7 +151,7 @@ const FAQ_CONFIG = [
         keywords: ['pistola', 'aguja', 'método', 'perforar'],
         response: "Solo utilizamos **AGUJA ESTÉRIL tipo catéter**. **NUNCA** usamos pistolas, ya que pueden causar un daño innecesario al tejido y son menos higiénicas.",
         actions: [
-            { text: "Esterilización", action: "higiene" }
+            { text: "Ver Normas Legales", action: "link_legal" }
         ]
     }
 ];
@@ -161,7 +159,7 @@ const FAQ_CONFIG = [
 class ChatBot {
 
     constructor() {
-        // 1. Crear el HTML si no existe (método refactorizado para ser más limpio)
+        // 1. Crear el HTML si no existe
         this.createChatbotHTML();
 
         // 2. Obtener referencias
@@ -181,24 +179,14 @@ class ChatBot {
         if (document.getElementById('chatbotWidget')) return;
         
         const initialQuestionsHTML = `
-            <button class="quick-question" data-question="¿Qué estilos de tatuaje manejas?">Estilos disponibles</button>
-            <button class="quick-question" data-question="¿Cuánto cuesta un tatuaje?">Precios tatuajes</button>
-            <button class="quick-question" data-question="¿Cómo agendo una cita?">Agendar cita</button>
+            <button class="quick-question" data-question="¿Cuánto cuesta un tatuaje?">Precios</button>
+            <button class="quick-question" data-question="¿Cómo agendo una cita?">Cita</button>
+            <button class="quick-question" data-question="cuidados tatuaje">Cuidados</button>
         `;
 
         const initialBotMessage = `
             <div class="message bot-message">
                 <p>¡Hola! Soy Jim Tattoo Assistant. ¿En qué puedo ayudarte hoy? 😊</p>
-            </div>
-            <div class="message bot-message">
-                <p>Puedo ayudarte con:</p>
-                <ul>
-                    <li>💰 <strong>Precios y presupuestos</strong></li>
-                    <li>📅 <strong>Citas y disponibilidad</strong></li>
-                    <li>📍 <strong>Ubicación y horarios</strong></li>
-                    <li>🩹 <strong>Cuidados post-tatuaje/piercing</strong></li>
-                    <li>💎 <strong>Tipos de piercing</strong></li>
-                </ul>
             </div>
         `;
 
@@ -206,6 +194,7 @@ class ChatBot {
             <div class="chatbot-widget" id="chatbotWidget">
                 <div class="chatbot-header">
                     <div class="chatbot-avatar">
+                        <!-- Ruta de imagen del chatbot mantenida -->
                         <img src="images/logos/chatbot.png" alt="Jim Tattoo Logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
                     </div>
                     <div class="chatbot-info">
@@ -234,17 +223,9 @@ class ChatBot {
         `;
 
         document.body.insertAdjacentHTML('beforeend', chatbotHTML);
-        console.log('✅ HTML del chatbot creado');
     }
 
     init() {
-        console.log('✅ Chatbot inicializando...');
-        
-        if (!this.toggle || !this.widget) {
-            console.error('❌ Error: Faltan elementos esenciales del chatbot.');
-            return;
-        }
-
         // Event listeners principales
         this.toggle.addEventListener('click', () => this.toggleChat());
         this.close.addEventListener('click', () => this.closeChat());
@@ -263,7 +244,7 @@ class ChatBot {
             }
         });
 
-        // Asegurar que el menú responsive funcione en todas las páginas
+        // Funcionalidad de menú responsive (integrada aquí)
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
         if (navToggle && navMenu) {
@@ -271,13 +252,10 @@ class ChatBot {
                 navMenu.classList.toggle('active');
             });
         }
-
-        console.log('✅ Chatbot y menú responsive inicializados correctamente');
     }
 
     toggleChat() {
         this.container.classList.toggle('active');
-        // Asegurar que el scroll esté abajo al abrir
         if (this.container.classList.contains('active')) {
             this.scrollToBottom();
         }
@@ -287,7 +265,6 @@ class ChatBot {
         this.container.classList.remove('active');
     }
 
-    // Método para añadir mensajes de usuario
     addUserMessage(text) {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'message user-message';
@@ -296,7 +273,6 @@ class ChatBot {
         this.scrollToBottom();
     }
 
-    // Método para añadir mensajes del bot
     addBotMessage(text, actions = []) {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'message bot-message';
@@ -319,7 +295,6 @@ class ChatBot {
         }, 500);
     }
     
-    // Manejar clics en botones de acción dentro de los mensajes
     handleMessageClick(e) {
         if (e.target.classList.contains('action-button')) {
             const action = e.target.getAttribute('data-action');
@@ -340,13 +315,11 @@ class ChatBot {
         }
     }
 
-    // Lógica principal de procesamiento de preguntas
     processQuestion(question) {
         const q = question.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Normalizar y quitar acentos
         let response = null;
         let actions = [];
 
-        // Buscar en la configuración de FAQs
         for (const faq of FAQ_CONFIG) {
             const match = faq.keywords.some(keyword => q.includes(keyword));
             if (match) {
@@ -356,22 +329,18 @@ class ChatBot {
             }
         }
 
-        // Si no hay respuesta específica, usar la respuesta por defecto
         if (!response) {
-            response = "Lo siento, esa pregunta es muy específica. Puedo ayudarte con información básica. Para consultas detalladas, te recomiendo contactar a Jim directamente por WhatsApp al +34 615 796 188";
+            response = "Lo siento, no tengo una respuesta específica. Te recomiendo contactar a Jim directamente para consultas detalladas.";
             actions = [
                 { text: "📱 Contactar por WhatsApp", action: "whatsapp" },
                 { text: "📸 Ver Instagram", action: "instagram" }
             ];
         }
 
-        // Agregar respuesta del bot
         this.addBotMessage(response, actions);
     }
 
-    // Manejo de acciones especiales (abrir enlaces, scroll, etc.)
     handleAction(action) {
-        // Cerrar el chat después de la acción si es externa
         let closeAfterAction = true; 
         
         switch(action) {
@@ -380,6 +349,21 @@ class ChatBot {
                 break;
             case 'instagram':
                 window.open('https://instagram.com/jimtattooink', '_blank');
+                break;
+            case 'link_gallery':
+                window.location.href = 'gallery.html';
+                break;
+            case 'link_piercing':
+                window.location.href = 'piercing.html';
+                break;
+            case 'link_cuidados':
+                window.location.href = 'cuidados.html';
+                break;
+            case 'link_legal':
+                window.location.href = 'legal.html';
+                break;
+            case 'link_contacto':
+                window.location.href = 'index.html#contacto';
                 break;
             case 'precios_tatuajes':
                 this.processQuestion("precio tatuaje");
@@ -397,16 +381,8 @@ class ChatBot {
                 this.processQuestion("cuidado tatuaje");
                 closeAfterAction = false;
                 break;
-            case 'productos_limpieza':
-                this.processQuestion("productos limpieza");
-                closeAfterAction = false;
-                break;
             case 'irritacion':
                 this.processQuestion("irritación");
-                closeAfterAction = false;
-                break;
-            case 'infeccion_tatuaje':
-                this.processQuestion("infección tatuaje");
                 closeAfterAction = false;
                 break;
             case 'retoques':
@@ -421,33 +397,6 @@ class ChatBot {
                 this.processQuestion("formas de pago");
                 closeAfterAction = false;
                 break;
-            case 'proceso_diseno':
-                this.processQuestion("proceso de diseño");
-                closeAfterAction = false;
-                break;
-            case 'metodo_perforacion':
-                this.processQuestion("método perforación");
-                closeAfterAction = false;
-                break;
-            case 'higiene':
-                this.processQuestion("higiene");
-                closeAfterAction = false;
-                break;
-            case 'cambio_joya':
-                this.processQuestion("cambio de joya");
-                closeAfterAction = false;
-                break;
-            case 'preparacion_cita':
-                this.processQuestion("preparación cita");
-                closeAfterAction = false;
-                break;
-            case 'contact':
-                // Simular scroll a la sección de contacto (asumiendo que existe en la página principal)
-                const contactoSection = document.getElementById('contacto');
-                if (contactoSection) {
-                    contactoSection.scrollIntoView({ behavior: 'smooth' });
-                }
-                break;
             default:
                 console.warn(`Acción no reconocida: ${action}`);
         }
@@ -460,6 +409,5 @@ class ChatBot {
 
 // Inicializar chatbot cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 Inicializando ChatBot...');
     new ChatBot();
 });

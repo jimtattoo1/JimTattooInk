@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuidados y Recomendaciones - Jim Tattoo Ink</title>
-    <meta name="description" content="Guía completa de cuidados post-sesión para tatuajes y piercings. Recomendaciones de higiene y curación para Barcelona.">
+    <title>Guía de Cuidados Tatuajes y Piercings - Jim Tattoo Ink Barcelona</title>
+    <meta name="description" content="Consejos de curación y recomendaciones post-sesión para tatuajes y piercings. Información legal y sanitaria.">
+    <meta name="keywords" content="cuidados tatuaje, curación piercing, antes de tatuarse, higiene tatuajes barcelona">
     
-    <!-- ENLACE A ESTILOS CONSOLIDADOS (Ruta corregida a absoluta) -->
-    <link rel="stylesheet" href="./style.css">
+    <!-- ENLACE A ESTILOS CONSOLIDADOS -->
+    <link rel="stylesheet" href="./styles.css">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header y Navegación -->
     <header>
         <nav class="navbar">
             <div class="nav-brand">
+                <img src="images/logos/logo_original.png" alt="Jim Tattoo Ink Logo" class="logo">
                 <span>JIM TATTOO INK</span>
             </div>
-            <button class="nav-toggle" id="navToggle">
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html#inicio">INICIO</a></li>
+                <li><a href="index.html">INICIO</a></li>
                 <li><a href="gallery.html">TATUAJES</a></li>
                 <li><a href="piercing.html">PIERCINGS</a></li>
                 <li><a href="cuidados.html" class="active">CUIDADOS</a></li>
@@ -37,23 +41,37 @@
 
     <main class="main-content">
         <section class="section">
-            <h2 class="section-title">Cuidados Post-Sesión y Recomendaciones</h2>
-            <p class="section-subtitle">Información esencial para una curación óptima de tu arte corporal.</p>
+            <h1 class="section-title">Cuidados Post-Sesión y Recomendaciones</h1>
+            <p class="section-subtitle">Información esencial para una curación óptima de tu arte corporal y tu seguridad.</p>
+            
+            <!-- Antes de la Sesión -->
+            <div class="content-wrapper" id="antes">
+                <h2 style="text-align: left; color: var(--color-burgundy);">✅ Antes de la Sesión: Preparación</h2>
+                <p>Preparar tu cuerpo y mente es clave para una experiencia de tatuaje o piercing exitosa y una curación rápida.</p>
+                <ul class="list-check">
+                    <li>**Descanso:** Duerme al menos 8 horas la noche anterior. Un cuerpo descansado tolera mejor el dolor.</li>
+                    <li>**Alimentación:** Ven al estudio bien alimentado. Esto ayuda a mantener estables los niveles de azúcar y previene mareos.</li>
+                    <li>**Hidratación:** Bebe suficiente agua antes y durante la sesión.</li>
+                    <li>**Piel:** La zona debe estar limpia y libre de heridas, quemaduras solares o irritaciones. Evita afeitar la zona; lo haremos en el estudio.</li>
+                    <li>**Ropa:** Viste ropa cómoda, holgada y oscura que permita un fácil acceso a la zona a trabajar.</li>
+                    <li>**Documentación:** Si eres menor de edad, trae la documentación requerida (ver `legal.html`).</li>
+                </ul>
+            </div>
             
             <!-- Tatuajes -->
-            <div class="content-wrapper">
-                <h3 style="text-align: left; color: var(--color-burgundy);">💉 Tatuajes: Guía de Curación</h3>
+            <div class="content-wrapper" id="tatuajes">
+                <h2 style="text-align: left; color: var(--color-burgundy);">💉 Tatuajes: Guía de Curación</h2>
                 <p>El cuidado adecuado es crucial para la curación y la longevidad de tu tatuaje. Sigue estas instrucciones al pie de la letra.</p>
                 
-                <h4 style="text-align: left; color: var(--color-gold); margin-top: 1rem;">1. Inmediatamente después (Primeras 24 horas)</h4>
-                <ul>
+                <h3 style="text-align: left; color: var(--color-gold); margin-top: 1rem;">1. Inmediatamente después (Primeras 24 horas)</h3>
+                <ul class="list-dot">
                     <li>**Vendaje:** Mantén el vendaje inicial (film osmótico o apósito especial) puesto durante el tiempo recomendado por tu tatuador.</li>
                     <li>**Limpieza:** Retira el vendaje y lava el tatuaje suavemente con agua tibia y jabón neutro (pH 5.5, sin perfumes).</li>
                     <li>**Secado:** Seca el tatuaje dando pequeños toques con una toalla de papel limpia (nunca utilices una toalla de tela).</li>
                 </ul>
 
-                <h4 style="text-align: left; color: var(--color-gold); margin-top: 1rem;">2. Durante la Curación (Primeras 2-4 semanas)</h4>
-                <ul>
+                <h3 style="text-align: left; color: var(--color-gold); margin-top: 1rem;">2. Durante la Curación (Primeras 2-4 semanas)</h3>
+                <ul class="list-dot">
                     <li>**Hidratación:** Aplica una capa muy fina de crema específica para tatuajes 2 o 3 veces al día.</li>
                     <li>**Higiene:** Continúa lavando 2 veces al día.</li>
                     <li>**Evita:** Exposición solar directa, sumergir el tatuaje (piscinas, jacuzzis), ropa ajustada o áspera, y rascar o arrancar las costras.</li>
@@ -61,19 +79,19 @@
             </div>
 
             <!-- Piercings -->
-            <div class="content-wrapper">
-                <h3 style="text-align: left; color: var(--color-burgundy);">💎 Piercings: Guía de Curación</h3>
+            <div class="content-wrapper" id="piercings">
+                <h2 style="text-align: left; color: var(--color-burgundy);">💎 Piercings: Guía de Curación</h2>
                 <p>La curación de un piercing requiere paciencia y una rutina de limpieza estricta.</p>
                 
-                <h4 style="text-align: left; color: var(--color-gold); margin-top: 1rem;">1. Rutina de Limpieza (2 veces al día)</h4>
-                <ul>
+                <h3 style="text-align: left; color: var(--color-gold); margin-top: 1rem;">1. Rutina de Limpieza (2 veces al día)</h3>
+                <ul class="list-dot">
                     <li>**Solución Salina:** Utiliza una solución salina estéril específica para piercings.</li>
                     <li>**Aplicación:** Rocía la solución directamente sobre la perforación por delante y por detrás. Deja actuar unos segundos.</li>
                     <li>**Secado:** Seca el área con una gasa estéril o toalla de papel. **Nunca gires la joya**.</li>
                 </ul>
 
-                <h4 style="text-align: left; color: var(--color-gold); margin-top: 1rem;">2. Qué Evitar</h4>
-                <ul>
+                <h3 style="text-align: left; color: var(--color-gold); margin-top: 1rem;">2. Qué Evitar</h3>
+                <ul class="list-dot">
                     <li>**Tocar:** Evita tocar el piercing con las manos sucias.</li>
                     <li>**Productos:** Evita que entren en contacto cosméticos, cremas o perfumes.</li>
                     <li>**Sumergir:** Evita piscinas, jacuzzis y saunas durante el primer mes.</li>
@@ -82,43 +100,27 @@
                 </ul>
             </div>
             
-            <!-- Antes de la Sesión -->
-            <div class="content-wrapper">
-                <h3 style="text-align: left; color: var(--color-burgundy);">✅ Antes de la Sesión</h3>
-                <p>Para asegurar la mejor experiencia y un resultado óptimo, te recomendamos:</p>
-                <ul>
-                    <li>**Descansar:** Duerme bien la noche anterior.</li>
-                    <li>**Comer:** Ven al estudio bien alimentado para evitar bajadas de azúcar.</li>
-                    <li>**Hidratación:** Mantente hidratado.</li>
-                    <li>**Piel:** La zona a tatuar/perforar debe estar limpia y libre de heridas o irritaciones.</li>
-                    <li>**Ropa:** Viste ropa cómoda y oscura que permita un fácil acceso a la zona.</li>
-                </ul>
-            </div>
-            
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer (Idéntico al index.html) -->
     <footer class="footer" id="contacto">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Jim Tattoo Ink</h3>
                 <p>Especialista en Blackwork<br>Barcelona, España</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/jimtattooink" target="_blank" aria-label="Instagram"><img src="images/logos/instagram.svg" alt="Instagram"></a>
+                    <a href="https://facebook.com/jimtattooink" target="_blank" aria-label="Facebook"><img src="images/logos/facebook.svg" alt="Facebook"></a>
+                    <a href="https://wa.me/34615796188" target="_blank" aria-label="WhatsApp"><img src="images/logos/whatsapp.svg" alt="WhatsApp"></a>
+                </div>
             </div>
             
-            <div class="footer-section">
-                <h4>Contacto</h4>
-                <div class="contact-links">
-                    <a href="https://wa.me/34615796188" class="contact-link">
-                        📱 WhatsApp
-                    </a>
-                    <a href="https://instagram.com/jimtattooink" class="contact-link">
-                        📸 Instagram
-                    </a>
-                    <a href="mailto:jimtattootatuajes@gmail.com" class="contact-link">
-                        ✉️ Email
-                    </a>
-                </div>
+            <div class="footer-section contact-info">
+                <h4>Contacto Directo</h4>
+                <p>📱 **WhatsApp:** +34 615 796 188</p>
+                <p>✉️ **Email:** jimtattootatuajes@gmail.com</p>
+                <p>📍 **Ubicación:** Barcelona (Solo con cita previa)</p>
             </div>
             
             <div class="footer-section">
@@ -140,13 +142,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS (Ruta corregida a absoluta) -->
+    <!-- SCRIPTS -->
     <script src="./js/main.js"></script>
-    <script>
-        // Funcionalidad de menú responsive (Mantenida en main.js)
-        // document.getElementById('navToggle').addEventListener('click', function() {
-        //     document.getElementById('navMenu').classList.toggle('active');
-        // });
-    </script>
 </body>
 </html>

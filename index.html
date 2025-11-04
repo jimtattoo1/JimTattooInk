@@ -1,213 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
-    <style>
-/* ESTILOS CHATBOT INLINE (MANTENIDOS) */
-.bot-message {
-    background-color: #f8f9fa !important;
-    color: #333 !important;
-    border: 1px solid #e9ecef !important;
-}
-
-.bot-message ul {
-    background-color: transparent !important;
-}
-
-.bot-message li {
-    background-color: white !important;
-    color: #495057 !important;
-    border: 1px solid #dee2e6 !important;
-    padding: 8px 12px !important;
-    margin-bottom: 8px !important;
-    border-radius: 6px !important;
-}
-
-.bot-message li strong {
-    color: var(--color-gold) !important; /* Usar variable CSS si está disponible */
-}
-</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jim Tattoo Ink - Estudio de Tatuajes Blackwork en Barcelona</title>
-    <meta name="description" content="Estudio profesional de tatuajes blackwork y piercings en Barcelona. Diseños únicos y personalizados con máxima higiene y calidad artística.">
+    <title>Jim Tattoo Ink: Tatuajes Blackwork y Piercing Profesional en Barcelona</title>
+    <meta name="description" content="Estudio de tatuajes blackwork y piercing profesional en Barcelona. Diseños únicos, máxima higiene y 18 años de experiencia. ¡Pide tu presupuesto!">
+    <meta name="keywords" content="tatuajes blackwork barcelona, piercing profesional barcelona, estudio tatuajes barcelona, Jim Tattoo Ink">
+    <meta name="author" content="Jim Tattoo Ink">
     
-    <!-- ENLACE A ESTILOS CONSOLIDADOS (Ruta corregida a absoluta) -->
-    <link rel="stylesheet" href="./style.css">
+    <!-- ENLACE A ESTILOS CONSOLIDADOS -->
+    <link rel="stylesheet" href="./styles.css">
     
-    <!-- Google Fonts CORREGIDO -->
+    <!-- Google Fonts (Para un diseño moderno y legible) -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Header CORREGIDO -->
+    <!-- Header y Navegación -->
     <header>
         <nav class="navbar">
             <div class="nav-brand">
+                <!-- Ruta de logo mantenida -->
+                <img src="images/logos/logo_original.png" alt="Jim Tattoo Ink Logo" class="logo">
                 <span>JIM TATTOO INK</span>
             </div>
             
-            <!-- Menú para móvil -->
-            <button class="nav-toggle" id="navToggle">
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             
-            <!-- Menú de navegación -->
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#inicio" class="active">INICIO</a></li>
+                <li><a href="index.html" class="active">INICIO</a></li>
                 <li><a href="gallery.html">TATUAJES</a></li>
                 <li><a href="piercing.html">PIERCINGS</a></li>
-                <li><a href="cuidados.html">CUIDADOS</a></li> <!-- NUEVA SECCIÓN -->
+                <li><a href="cuidados.html">CUIDADOS</a></li>
                 <li><a href="#sobre-mi">SOBRE MÍ</a></li>
                 <li><a href="#contacto">CONTACTO</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (H1 principal) -->
     <section class="hero" id="inicio">
-        <h1>Jim Tattoo Ink</h1>
-        <p>Especialista en Blackwork - Barcelona</p>
-        <p>Arte que permanece en tu piel para siempre</p>
-        <a href="#contacto" class="btn btn-primary">Reserva tu cita</a>
+        <div class="hero-content">
+            <h1>Jim Tattoo Ink: Especialista en Blackwork Barcelona</h1>
+            <p class="subtitle">Arte que permanece en tu piel para siempre</p>
+            <a href="https://wa.me/34615796188" target="_blank" class="btn btn-primary">Reserva tu cita por WhatsApp</a>
+        </div>
     </section>
 
-    <!-- Sección Sobre Mí -->
-    <section class="section" id="sobre-mi">
+    <!-- Sección de Servicios Destacados (SEM) -->
+    <section class="section services-highlight">
+        <h2 class="section-title">Nuestros Servicios Destacados</h2>
+        <div class="services-grid">
+            <a href="gallery.html" class="service-card">
+                <img src="images/gallery/blackwork/highlight_1.jpg" alt="Tatuajes Blackwork Fineline" class="service-image">
+                <h3>Tatuajes Blackwork</h3>
+                <p>Especialidad de la casa. Diseños oscuros, fineline y geométricos.</p>
+            </a>
+            <a href="piercing.html" class="service-card">
+                <img src="images/gallery/piercings/highlight_2.jpg" alt="Piercing de Oreja Profesional" class="service-image">
+                <h3>Piercing Profesional</h3>
+                <p>Higiene máxima, aguja estéril y joyería de titanio. Sin pistola.</p>
+            </a>
+            <a href="cuidados.html" class="service-card">
+                <img src="images/logos/highlight_3.jpg" alt="Guía de Cuidados Post-Sesión" class="service-image">
+                <h3>Guía de Cuidados</h3>
+                <p>Toda la información legal y de curación para tu nuevo arte corporal.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí (SEO) -->
+    <section class="section about-section" id="sobre-mi">
         <div class="about-container">
+            <div class="about-image">
+                <!-- Ruta de imagen del artista mantenida -->
+                <img src="images/logos/artist_photo.jpg" alt="Foto de Jim Tattoo Ink, artista de tatuajes en Barcelona" class="artist-photo">
+            </div>
             <div class="about-text">
                 <h2>Sobre Jim Tattoo Ink</h2>
-                <p>Con más de 18 años de experiencia especializado en <strong>blackwork</strong>, fusiono técnica precisa con visión artística para crear piezas únicas que cuentan tu historia.</p>
+                <p>Con más de **18 años de experiencia** en el arte del tatuaje, Jim se ha consolidado como un referente en el estilo **Blackwork** en Barcelona. Nuestro estudio se basa en la pasión por el diseño personalizado, la técnica impecable y, sobre todo, la máxima seguridad e higiene.</p>
                 
                 <div class="about-features">
                     <div class="feature">
-                        <h3>🎨 Enfoque Artístico</h3>
-                        <p>Cada diseño es una obra única, creada específicamente para cada cliente.</p>
+                        <h3>🎨 Diseño Personalizado</h3>
+                        <p>Cada pieza es única. Trabajamos contigo para transformar tu idea en un diseño original y duradero.</p>
                     </div>
                     <div class="feature">
-                        <h3>🩹 Máxima Higiene</h3>
-                        <p>Protocolos estrictos de esterilización y materiales de primera calidad.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>📍 Barcelona</h3>
-                        <p>Estudio privado ubicado en el centro de la ciudad, fácilmente accesible.</p>
+                        <h3>🩹 Protocolo de Higiene</h3>
+                        <p>Cumplimos rigurosamente con el Decreto 90/2008 de la Generalitat de Catalunya. Materiales de un solo uso y esterilización garantizada.</p>
                     </div>
                 </div>
                 
-                <a href="#contacto" class="btn btn-secondary">Conoce mi proceso</a>
-            </div>
-            <div class="about-image">
-                <!-- Aquí irá tu foto después -->
-                <div class="image-placeholder">
-                    <span>Tu foto profesional aquí</span>
-                </div>
+                <a href="index.html#contacto" class="btn btn-secondary">Agenda una Consulta</a>
             </div>
         </div>
     </section>
         
-    <!-- Sección de Reseñas Flotantes VERIFICADAS -->
+    <!-- Sección de Reseñas (Prueba Social) -->
     <section class="reviews-section" id="reseñas">
         <div class="container">
-            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-            <p class="reviews-subtitle">Reseñas reales verificadas de Instagram y Google</p>
+            <h2 class="section-title">Clientes Satisfechos</h2>
+            <p class="reviews-subtitle">Más de 50 reseñas verificadas nos avalan en Google e Instagram.</p>
             
-            <div class="reviews-clouds">
-                <!-- Nube 1 con verificación -->
-                <div class="review-cloud cloud-1 verified" style="top: 5%; left: 8%;">
-                    <div class="cloud-content">
-                        <div class="review-header">
-                            <span class="verified-badge">✓ Verificado</span>
-                            <span class="review-source">Instagram</span>
-                        </div>
-                        <p>"Jim es un artista increíble. Su atención al detalle en mi blackwork es impresionante."</p>
-                        <div class="client-info">
-                            <span class="client-name">Ana M.</span>
-                            <span class="review-date">Nov 2024</span>
-                        </div>
-                    </div>
+            <div class="reviews-carousel">
+                <!-- Se simula un carrusel con tarjetas estáticas para la versión HTML -->
+                <div class="review-card">
+                    <p>"El mejor estudio de Blackwork en Barcelona. Profesionalidad y un trato inmejorable. ¡Volveré por mi próximo proyecto!"</p>
+                    <span class="client-name">— Ana M. (Google)</span>
                 </div>
-                
-                <!-- Nube 2 con verificación -->
-                <div class="review-cloud cloud-2" style="top: 8%; right: 12%;">
-                    <div class="cloud-content">
-                        <div class="review-header">
-                            <span class="verified-badge">✓ Verificado</span>
-                            <span class="review-source">Google</span>
-                        </div>
-                        <p>"Ambiente profesional y muy limpio. Mi piercing de nariz quedó perfecto."</p>
-                        <div class="client-info">
-                            <span class="client-name">Carlos R.</span>
-                            <span class="review-date">Oct 2024</span>
-                        </div>
-                    </div>
+                <div class="review-card">
+                    <p>"Me hice un piercing y el proceso fue rapidísimo y muy higiénico. Me explicaron los cuidados perfectamente. 100% recomendado."</p>
+                    <span class="client-name">— Carlos R. (Instagram)</span>
                 </div>
-                
-                <!-- Nube 3 con verificación -->
-                <div class="review-cloud cloud-3" style="bottom: 10%; left: 15%;">
-                    <div class="cloud-content">
-                        <div class="review-header">
-                            <span class="verified-badge">✓ Verificado</span>
-                            <span class="review-source">Instagram</span>
-                        </div>
-                        <p>"Más de 5 tatuajes con Jim y siempre supera mis expectativas. ¡Recomendadísimo!"</p>
-                        <div class="client-info">
-                            <span class="client-name">Sofía L.</span>
-                            <span class="review-date">Sep 2024</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Nube 4 con verificación -->
-                <div class="review-cloud cloud-4" style="bottom: 10%; right: 8%;">
-                    <div class="cloud-content">
-                        <div class="review-header">
-                            <span class="verified-badge">✓ Verificado</span>
-                            <span class="review-source">Google</span>
-                        </div>
-                        <p>"El proceso fue muy profesional y el resultado espectacular. Volveré sin duda."</p>
-                        <div class="client-info">
-                            <span class="client-name">David G.</span>
-                            <span class="review-date">Ago 2024</span>
-                        </div>
-                    </div>
+                <div class="review-card">
+                    <p>"Jim es un artista con una visión única. Mi tatuaje de fineline es una obra de arte. ¡Gracias por la paciencia!"</p>
+                    <span class="client-name">— Sofía L. (Google)</span>
                 </div>
             </div>
             
-            <!-- Botones para ver más reseñas reales -->
-            <div class="reviews-cta">
-                <p>Más de 50 reseñas reales en nuestras redes</p>
-                <div class="review-links">
-                
-                    <a href="https://instagram.com/jimtattooink" class="btn btn-secondary" target="_blank">
-                        📸 Ver en Instagram
-                    </a>
-                </div>
-            </div>
+            <a href="https://instagram.com/jimtattooink" class="btn btn-secondary mt-3" target="_blank">
+                📸 Ver todas las reseñas en Instagram
+            </a>
         </div>
     </section>
     
-    <!-- Footer -->
+    <!-- Footer (Contacto y Legal) -->
     <footer class="footer" id="contacto">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Jim Tattoo Ink</h3>
                 <p>Especialista en Blackwork<br>Barcelona, España</p>
+                <div class="social-links">
+                    <!-- Mantener enlaces a redes sociales -->
+                    <a href="https://instagram.com/jimtattooink" target="_blank" aria-label="Instagram"><img src="images/logos/instagram.svg" alt="Instagram"></a>
+                    <a href="https://facebook.com/jimtattooink" target="_blank" aria-label="Facebook"><img src="images/logos/facebook.svg" alt="Facebook"></a>
+                    <a href="https://wa.me/34615796188" target="_blank" aria-label="WhatsApp"><img src="images/logos/whatsapp.svg" alt="WhatsApp"></a>
+                </div>
             </div>
             
-            <div class="footer-section">
-                <h4>Contacto</h4>
-                <div class="contact-links">
-                    <a href="https://wa.me/34615796188" class="contact-link">
-                        📱 WhatsApp
-                    </a>
-                    <a href="https://instagram.com/jimtattooink" class="contact-link">
-                        📸 Instagram
-                    </a>
-                    <a href="mailto:jimtattootatuajes@gmail.com" class="contact-link">
-                        ✉️ Email
-                    </a>
-                </div>
+            <div class="footer-section contact-info">
+                <h4>Contacto Directo</h4>
+                <p>📱 **WhatsApp:** +34 615 796 188</p>
+                <p>✉️ **Email:** jimtattootatuajes@gmail.com</p>
+                <p>📍 **Ubicación:** Barcelona (Solo con cita previa)</p>
             </div>
             
             <div class="footer-section">
@@ -220,6 +159,7 @@
         
         <div class="footer-bottom">
             <div class="footer-legal-links">
+                <!-- Enlaces a la página legal -->
                 <a href="legal.html#privacidad">Política de Privacidad</a>
                 <a href="legal.html#cookies">Política de Cookies</a>
                 <a href="legal.html#menores">Menores de Edad</a>
@@ -231,11 +171,5 @@
 
     <!-- SCRIPTS -->
     <script src="./js/main.js"></script>
-    <script>
-        // Funcionalidad de menú responsive (Mantenida en main.js)
-        // document.getElementById('navToggle').addEventListener('click', function() {
-        //     document.getElementById('navMenu').classList.toggle('active');
-        // });
-    </script>
 </body>
 </html>

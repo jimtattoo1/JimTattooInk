@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aviso Legal y Políticas - Jim Tattoo Ink</title>
-    <meta name="description" content="Políticas de Privacidad, Cookies, Normativa de Higiene y Consentimiento Informado para Tatuajes y Piercings en Barcelona.">
+    <title>Aviso Legal y Políticas - Jim Tattoo Ink Barcelona</title>
+    <meta name="description" content="Política de Privacidad, Cookies, Normas de Higiene y Consentimiento Informado para Tatuajes y Piercings en Barcelona.">
+    <meta name="keywords" content="politica privacidad tatuajes, normas higiene barcelona, consentimiento informado piercing, menores de edad tatuajes">
     
-    <!-- ENLACE A ESTILOS CONSOLIDADOS (Ruta corregida a absoluta) -->
-    <link rel="stylesheet" href="./style.css">
+    <!-- ENLACE A ESTILOS CONSOLIDADOS -->
+    <link rel="stylesheet" href="./styles.css">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header y Navegación -->
     <header>
         <nav class="navbar">
             <div class="nav-brand">
+                <img src="images/logos/logo_original.png" alt="Jim Tattoo Ink Logo" class="logo">
                 <span>JIM TATTOO INK</span>
             </div>
-            <button class="nav-toggle" id="navToggle">
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html#inicio">INICIO</a></li>
+                <li><a href="index.html">INICIO</a></li>
                 <li><a href="gallery.html">TATUAJES</a></li>
                 <li><a href="piercing.html">PIERCINGS</a></li>
                 <li><a href="cuidados.html">CUIDADOS</a></li>
@@ -36,29 +40,29 @@
     </header>
 
     <main class="main-content">
-        <section class="section">
-            <h2 class="section-title">Aviso Legal y Políticas</h2>
-            <p class="section-subtitle">Cumplimiento normativo para tu seguridad y tranquilidad.</p>
+        <section class="section legal-section">
+            <h1 class="section-title">Aviso Legal y Políticas</h1>
+            <p class="section-subtitle">Cumplimiento normativo para tu seguridad y tranquilidad en Barcelona.</p>
             
             <!-- Política de Privacidad -->
-            <div class="content-wrapper" id="privacidad">
-                <h3 style="text-align: left; color: var(--color-burgundy);">Política de Privacidad (RGPD)</h3>
+            <div class="content-wrapper legal-item" id="privacidad">
+                <h2 style="text-align: left; color: var(--color-burgundy);">Política de Privacidad (RGPD)</h2>
                 <p>En cumplimiento con el Reglamento General de Protección de Datos (RGPD), le informamos que sus datos personales (nombre, teléfono, email) son tratados por **Jim Tattoo Ink** (Responsable del Tratamiento) con el único fin de gestionar su cita, el consentimiento informado, y el seguimiento post-sesión. La base legal para el tratamiento es su **consentimiento** expreso y la ejecución de un **contrato** de servicio.</p>
-                <p>Los datos no serán cedidos a terceros, salvo obligación legal. Puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad enviando un correo electrónico a jimtattootatuajes@gmail.com.</p>
+                <p>Los datos no serán cedidos a terceros, salvo obligación legal. Puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad enviando un correo electrónico a **jimtattootatuajes@gmail.com**.</p>
             </div>
             
             <!-- Política de Cookies -->
-            <div class="content-wrapper" id="cookies">
-                <h3 style="text-align: left; color: var(--color-burgundy);">Política de Cookies (LSSI-CE)</h3>
+            <div class="content-wrapper legal-item" id="cookies">
+                <h2 style="text-align: left; color: var(--color-burgundy);">Política de Cookies (LSSI-CE)</h2>
                 <p>Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia de navegación, realizar análisis estadísticos y mostrar publicidad relevante. En cumplimiento con la LSSI-CE, requerimos su **consentimiento explícito** para la instalación de cookies no esenciales.</p>
                 <p>Al acceder al sitio, se le presenta un **banner de cookies** que le permite Aceptar, Rechazar o Configurar el uso de las mismas. Puede cambiar su configuración en cualquier momento. Las cookies esenciales para el funcionamiento básico de la web están exentas de consentimiento.</p>
             </div>
             
             <!-- Menores de Edad y Consentimiento Informado -->
-            <div class="content-wrapper" id="menores">
-                <h3 style="text-align: left; color: var(--color-burgundy);">Menores de Edad y Consentimiento Informado</h3>
+            <div class="content-wrapper legal-item" id="menores">
+                <h2 style="text-align: left; color: var(--color-burgundy);">Menores de Edad y Consentimiento Informado</h2>
                 <p>En cumplimiento con el **Decreto 90/2008 de la Generalitat de Catalunya**, la realización de tatuajes y piercings en menores de 18 años requiere el **consentimiento expreso y por escrito** de sus padres o tutores legales.</p>
-                <ul>
+                <ul class="list-dot">
                     <li>**Presencia Obligatoria:** El menor y el padre/madre/tutor deben estar presentes en el estudio.</li>
                     <li>**Documentación Requerida:** DNI/NIE/Pasaporte de ambos y Libro de Familia o documento que acredite la tutela.</li>
                     <li>**Consentimiento Informado:** Antes de la práctica, se debe firmar un documento donde se detallan los riesgos sanitarios y los cuidados post-sesión.</li>
@@ -67,10 +71,10 @@
             </div>
             
             <!-- Normas de Higiene y Sanidad -->
-            <div class="content-wrapper" id="higiene">
-                <h3 style="text-align: left; color: var(--color-burgundy);">Normas de Higiene y Sanidad (Barcelona)</h3>
+            <div class="content-wrapper legal-item" id="higiene">
+                <h2 style="text-align: left; color: var(--color-burgundy);">Normas de Higiene y Sanidad (Barcelona)</h2>
                 <p>Nuestro estudio opera bajo la licencia sanitaria municipal de Barcelona y sigue estrictamente el **Decreto 90/2008**. Su seguridad es nuestra prioridad:</p>
-                <ul>
+                <ul class="list-dot">
                     <li>**Material Estéril:** Uso exclusivo de material de un solo uso (agujas, guantes, etc.).</li>
                     <li>**Esterilización:** Las herramientas reutilizables son esterilizadas mediante **autoclave** de clase B.</li>
                     <li>**Técnica de Perforación:** Los piercings se realizan únicamente con **aguja estéril (catéter)**. El uso de pistolas está prohibido.</li>
@@ -81,27 +85,24 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer (Idéntico al index.html) -->
     <footer class="footer" id="contacto">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Jim Tattoo Ink</h3>
                 <p>Especialista en Blackwork<br>Barcelona, España</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/jimtattooink" target="_blank" aria-label="Instagram"><img src="images/logos/instagram.svg" alt="Instagram"></a>
+                    <a href="https://facebook.com/jimtattooink" target="_blank" aria-label="Facebook"><img src="images/logos/facebook.svg" alt="Facebook"></a>
+                    <a href="https://wa.me/34615796188" target="_blank" aria-label="WhatsApp"><img src="images/logos/whatsapp.svg" alt="WhatsApp"></a>
+                </div>
             </div>
             
-            <div class="footer-section">
-                <h4>Contacto</h4>
-                <div class="contact-links">
-                    <a href="https://wa.me/34615796188" class="contact-link">
-                        📱 WhatsApp
-                    </a>
-                    <a href="https://instagram.com/jimtattooink" class="contact-link">
-                        📸 Instagram
-                    </a>
-                    <a href="mailto:jimtattootatuajes@gmail.com" class="contact-link">
-                        ✉️ Email
-                    </a>
-                </div>
+            <div class="footer-section contact-info">
+                <h4>Contacto Directo</h4>
+                <p>📱 **WhatsApp:** +34 615 796 188</p>
+                <p>✉️ **Email:** jimtattootatuajes@gmail.com</p>
+                <p>📍 **Ubicación:** Barcelona (Solo con cita previa)</p>
             </div>
             
             <div class="footer-section">
@@ -123,13 +124,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS (Ruta corregida a absoluta) -->
+    <!-- SCRIPTS -->
     <script src="./js/main.js"></script>
-    <script>
-        // Funcionalidad de menú responsive (Mantenida en main.js)
-        // document.getElementById('navToggle').addEventListener('click', function() {
-        //     document.getElementById('navMenu').classList.toggle('active');
-        // });
-    </script>
 </body>
 </html>

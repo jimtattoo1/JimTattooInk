@@ -1,6 +1,9 @@
-// gallery.js - Funcionalidad de Galería y Lightbox
+// js/gallery.js - Funcionalidad de Galería y Lightbox
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Solo ejecutar si estamos en la página de galería
+    if (!document.querySelector('.gallery-section')) return;
+
     const filterButtons = document.querySelectorAll('.filter-btn');
     const galleryCards = document.querySelectorAll('.gallery-card');
     const lightbox = document.getElementById('lightbox');
@@ -30,11 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (filter === 'todos' || category === filter) {
                     card.style.display = 'block';
-                    card.style.opacity = '1';
+                    // Añadir a la lista de elementos filtrados
                     currentGalleryItems.push(card);
                 } else {
                     card.style.display = 'none';
-                    card.style.opacity = '0';
                 }
             });
         });
@@ -48,15 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             // Determinar el índice actual en el conjunto filtrado
-            const cardInFilteredSet = currentGalleryItems.find(item => item === card);
-            if (cardInFilteredSet) {
-                currentIndex = currentGalleryItems.indexOf(cardInFilteredSet);
-            } else {
-                 // Si la tarjeta no está en el conjunto filtrado (debería estar si se hizo clic)
-                 currentIndex = index;
-            }
+            currentIndex = currentGalleryItems.findIndex(item => item === card);
             
-            showLightbox(currentIndex);
+            if (currentIndex !== -1) {
+                showLightbox(currentIndex);
+            }
         });
     });
 

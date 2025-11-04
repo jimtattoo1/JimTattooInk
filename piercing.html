@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piercing Profesional - Jim Tattoo Ink | Barcelona</title>
-    <meta name="description" content="Piercing profesional en Barcelona con acero quirúrgico y bioflex. Técnica segura con aguja catéter y materiales de primera calidad.">
+    <title>Piercing Profesional Barcelona - Higiene y Joyería de Calidad</title>
+    <meta name="description" content="Piercing seguro con aguja estéril en Barcelona. Joyería de titanio y acero quirúrgico. Consulta precios y tipos de perforación.">
+    <meta name="keywords" content="piercing profesional barcelona, precios piercing, piercing con aguja, joyería titanio">
     
-    <!-- ENLACE A ESTILOS CONSOLIDADOS (Ruta corregida a absoluta) -->
-    <link rel="stylesheet" href="./style.css">
+    <!-- ENLACE A ESTILOS CONSOLIDADOS -->
+    <link rel="stylesheet" href="./styles.css">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header y Navegación -->
     <header>
         <nav class="navbar">
             <div class="nav-brand">
+                <img src="images/logos/logo_original.png" alt="Jim Tattoo Ink Logo" class="logo">
                 <span>JIM TATTOO INK</span>
             </div>
             
-            <!-- Menú para móvil -->
-            <button class="nav-toggle" id="navToggle">
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             
-            <!-- Menú de navegación -->
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html#inicio">INICIO</a></li>
+                <li><a href="index.html">INICIO</a></li>
                 <li><a href="gallery.html">TATUAJES</a></li>
                 <li><a href="piercing.html" class="active">PIERCINGS</a></li>
-                <li><a href="cuidados.html">CUIDADOS</a></li> <!-- NUEVA SECCIÓN -->
+                <li><a href="cuidados.html">CUIDADOS</a></li>
                 <li><a href="index.html#sobre-mi">SOBRE MÍ</a></li>
                 <li><a href="index.html#contacto">CONTACTO</a></li>
             </ul>
@@ -41,199 +41,161 @@
 
     <main class="main-content">
         <div class="container">
-            <!-- Hero Section -->
+            <!-- Hero Section (H1) -->
             <section class="piercings-hero">
                 <div class="hero-content">
-                    <h1>Piercing Profesional</h1>
-                    <p class="hero-subtitle">Precisión, higiene y los mejores materiales en Barcelona</p>
+                    <h1>Piercing Profesional y Seguro en Barcelona</h1>
+                    <p class="hero-subtitle">Técnica con aguja estéril y joyería de primera calidad para una curación óptima.</p>
                 </div>
             </section>
 
-            <!-- Grid de Piercings con Imágenes -->
+            <!-- Sección de Tipos de Piercing -->
             <section class="section">
-                <h2 class="section-title">Tipos de Piercing</h2>
+                <h2 class="section-title">Tipos de Piercing y Precios Base</h2>
                 <div class="piercings-grid-enhanced">
                     <!-- Nariz -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="images/gallery/piercings/nariz.jpg/1.jpg" alt="Piercing de Nariz" class="piercing-image">
-                            <div class="piercing-overlay">
-                                <span class="view-text">Ver Detalles</span>
-                            </div>
+                            <!-- Ruta de imagen mantenida -->
+                            <img src="images/gallery/piercings/nariz.jpg" alt="Piercing de Nariz" class="piercing-image">
                         </div>
                         <div class="piercing-content">
-                            <h3>Nariz</h3>
+                            <h3>Nariz (Nostril)</h3>
                             <div class="piercing-price">15€</div>
-                            <p class="piercing-desc">Colocación precisa en aleta nasal con técnica minimamente invasiva</p>
-                        </div>
-                    </div>
-
-                    <!-- Surface -->
-                    <div class="piercing-card-enhanced">
-                        <div class="piercing-image-wrapper">
-                            <img src="images/gallery/piercings/surface.jpg" alt="Piercing Surface" class="piercing-image">
-                            <div class="piercing-overlay">
-                                <span class="view-text">Ver Detalles</span>
-                            </div>
-                        </div>
-                        <div class="piercing-content">
-                            <h3>Surface</h3>
-                            <div class="piercing-price">15€</div>
-                            <p class="piercing-desc">Perforación superficial para áreas planas del cuerpo</p>
+                            <p class="piercing-desc">Perforación clásica y discreta. Incluye joya básica de acero quirúrgico.</p>
                         </div>
                     </div>
 
                     <!-- Lengua -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="images/gallery/piercings/lengua.jpg/1.webp" alt="Piercing de Lengua" class="piercing-image">
-                            <div class="piercing-overlay">
-                                <span class="view-text">Ver Detalles</span>
-                            </div>
+                            <!-- Ruta de imagen mantenida -->
+                            <img src="images/gallery/piercings/lengua.jpg" alt="Piercing de Lengua" class="piercing-image">
                         </div>
                         <div class="piercing-content">
                             <h3>Lengua</h3>
                             <div class="piercing-price">20€</div>
-                            <p class="piercing-desc">Técnica profesional garantizando seguridad y comodidad</p>
+                            <p class="piercing-desc">Realizado con barra de Bioflex para minimizar el daño dental y facilitar la curación.</p>
                         </div>
                     </div>
 
                     <!-- Ombligo -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="images/gallery/piercings/ombligo.jpg/1.webp" alt="Piercing de Ombligo" class="piercing-image">
-                            <div class="piercing-overlay">
-                                <span class="view-text">Ver Detalles</span>
-                            </div>
+                            <!-- Ruta de imagen mantenida -->
+                            <img src="images/gallery/piercings/ombligo.jpg" alt="Piercing de Ombligo" class="piercing-image">
                         </div>
                         <div class="piercing-content">
                             <h3>Ombligo</h3>
                             <div class="piercing-price">20€</div>
-                            <p class="piercing-desc">Clásico atemporal con colocación anatómica precisa</p>
-                        </div>
-                    </div>
-
-                    <!-- Pezón -->
-                    <div class="piercing-card-enhanced">
-                        <div class="piercing-image-wrapper">
-                            <img src="images/gallery/piercings/pezon.jpg" alt="Piercing de Pezón" class="piercing-image">
-                            <div class="piercing-overlay">
-                                <span class="view-text">Ver Detalles</span>
-                            </div>
-                        </div>
-                        <div class="piercing-content">
-                            <h3>Pezón</h3>
-                            <div class="piercing-price">25€</div>
-                            <p class="piercing-desc">Discreto, sensual con máxima atención al detalle</p>
-                        </div>
-                    </div>
-
-                    <!-- Oreja -->
-                    <div class="piercing-card-enhanced">
-                        <div class="piercing-image-wrapper">
-                            <img src="images/gallery/piercings/oreja.jpg/1.jpg" alt="Piercing Oreja" class="piercing-image">
-                            <div class="piercing-overlay">
-                                <span class="view-text">Ver Detalles</span>
-                            </div>
-                        </div>
-                        <div class="piercing-content">
-                            <h3>Oreja</h3>
-                            <div class="piercing-price">20€</div>
-                            <p class="piercing-desc">todos los estilos, a tu medida y gusto</p>
+                            <p class="piercing-desc">Colocación anatómica precisa para un resultado estético y seguro.</p>
                         </div>
                     </div>
 
                     <!-- Microdermal -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="images/gallery/piercings/microdermal.jpg/2.webp" alt="Piercing Microdermal" class="piercing-image">
-                            <div class="piercing-overlay">
-                                <span class="view-text">Ver Detalles</span>
-                            </div>
+                            <!-- Ruta de imagen mantenida -->
+                            <img src="images/gallery/piercings/microdermal.jpg" alt="Piercing Microdermal" class="piercing-image">
                         </div>
                         <div class="piercing-content">
                             <h3>Microdermal</h3>
                             <div class="piercing-price">30€</div>
-                            <p class="piercing-desc">Implantación superficial sin perforación tradicional</p>
+                            <p class="piercing-desc">Implantación superficial para zonas planas. Requiere cuidado especial.</p>
                         </div>
                     </div>
-
-                    <!-- Microdermal 2 -->
+                    
+                    <!-- Oreja (Helix, Lóbulo, Tragus) -->
                     <div class="piercing-card-enhanced">
                         <div class="piercing-image-wrapper">
-                            <img src="images/gallery/piercings/microdermal.jpg/1.webp" alt="Piercing Microdermal" class="piercing-image">
-                            <div class="piercing-overlay">
-                                <span class="view-text">Ver Detalles</span>
-                            </div>
+                            <!-- Ruta de imagen mantenida -->
+                            <img src="images/gallery/piercings/oreja.jpg" alt="Piercing de Oreja (Helix, Tragus)" class="piercing-image">
                         </div>
                         <div class="piercing-content">
-                            <h3>Microdermal</h3>
-                            <div class="piercing-price">30€</div>
-                            <p class="piercing-desc">Implantación superficial sin perforación tradicional</p>
+                            <h3>Oreja (Varios)</h3>
+                            <div class="piercing-price">Desde 15€</div>
+                            <p class="piercing-desc">Lóbulo, Helix, Tragus, Rook, Daith. Consulta para diseños personalizados.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Pezón -->
+                    <div class="piercing-card-enhanced">
+                        <div class="piercing-image-wrapper">
+                            <!-- Ruta de imagen mantenida -->
+                            <img src="images/gallery/piercings/pezon.jpg" alt="Piercing de Pezón" class="piercing-image">
+                        </div>
+                        <div class="piercing-content">
+                            <h3>Pezón</h3>
+                            <div class="piercing-price">25€</div>
+                            <p class="piercing-desc">Máxima discreción y profesionalidad en la ejecución.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Información de Seguridad y Materiales -->
+            <!-- Información de Seguridad y Materiales (SEO/SEM) -->
             <section class="safety-section">
-                <div class="container">
-                    <h2 class="section-title" style="color: var(--color-burgundy);">Higiene y Seguridad Garantizada</h2>
-                </div>
+                <h2 class="section-title">Seguridad, Higiene y Materiales</h2>
                 <div class="safety-grid">
                     <!-- Proceso Seguro -->
                     <div class="safety-card">
-                        <div class="safety-icon">🩺</div>
-                        <h3>Proceso Seguro</h3>
+                        <div class="safety-icon">💉</div>
+                        <h3>Técnica de Aguja Estéril</h3>
                         <p class="safety-text">
-                            En Jimtattooink Barcelona, la higiene es lo primero. Realizamos tu piercing con aguja (**nunca pistola**), utilizando la técnica de catéter y material nuevo de un solo uso para una perforación segura y precisa, en cumplimiento con el **Decreto 90/2008**.
+                            **Nunca utilizamos pistola.** Realizamos todas las perforaciones con aguja estéril (catéter) de un solo uso, garantizando un proceso más limpio, menos traumático y en cumplimiento con la normativa sanitaria de Barcelona.
                         </p>
                     </div>
 
                     <!-- Materiales Premium -->
                     <div class="safety-card">
                         <div class="safety-icon">💎</div>
-                        <h3>Materiales Premium</h3>
+                        <h3>Joyería Hipoalergénica</h3>
                         <p class="safety-text">
-                            Solo trabajamos con joyería de primera calidad: **Acero Quirúrgico 316L** o **Bioflex** para las piezas iniciales, garantizando un cuidado óptimo y máxima biocompatibilidad. Todas las joyas están esterilizadas y listas para su uso.
+                            Solo trabajamos con materiales biocompatibles: **Acero Quirúrgico 316L** y **Titanio**. Esto minimiza el riesgo de infección y rechazo, asegurando una curación más rápida y segura.
+                        </p>
+                    </div>
+                    
+                    <!-- Cuidados -->
+                    <div class="safety-card">
+                        <div class="safety-icon">🩹</div>
+                        <h3>Guía de Cuidados Post-Sesión</h3>
+                        <p class="safety-text">
+                            Te proporcionamos una guía detallada de curación y estamos disponibles para resolver cualquier duda durante el proceso. La curación es tan importante como la perforación.
                         </p>
                     </div>
                 </div>
             </section>
 
-            <!-- CTA Simple -->
+            <!-- CTA Final -->
             <section class="piercing-cta-simple">
                 <div class="cta-simple-content">
                     <h3>¿Listo para tu nuevo piercing?</h3>
-                    <p>Consulta nuestros cuidados post-sesión o contacta para agendar tu cita.</p>
-                    <a href="cuidados.html#piercings" class="btn btn-secondary" style="margin-right: 1rem;">Ver Cuidados</a>
-                    <a href="index.html#contacto" class="btn btn-primary">Reservar Cita</a>
+                    <p>Agenda tu cita hoy y asegura tu perforación con los más altos estándares de higiene.</p>
+                    <a href="cuidados.html#piercings" class="btn btn-secondary" style="margin-right: 1rem;">Ver Guía de Cuidados</a>
+                    <a href="https://wa.me/34615796188" target="_blank" class="btn btn-primary">Reservar Cita (WhatsApp)</a>
                 </div>
             </section>
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer (Idéntico al index.html) -->
     <footer class="footer" id="contacto">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Jim Tattoo Ink</h3>
                 <p>Especialista en Blackwork<br>Barcelona, España</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/jimtattooink" target="_blank" aria-label="Instagram"><img src="images/logos/instagram.svg" alt="Instagram"></a>
+                    <a href="https://facebook.com/jimtattooink" target="_blank" aria-label="Facebook"><img src="images/logos/facebook.svg" alt="Facebook"></a>
+                    <a href="https://wa.me/34615796188" target="_blank" aria-label="WhatsApp"><img src="images/logos/whatsapp.svg" alt="WhatsApp"></a>
+                </div>
             </div>
             
-            <div class="footer-section">
-                <h4>Contacto</h4>
-                <div class="contact-links">
-                    <a href="https://wa.me/34615796188" class="contact-link">
-                        📱 WhatsApp
-                    </a>
-                    <a href="https://instagram.com/jimtattooink" class="contact-link">
-                        📸 Instagram
-                    </a>
-                    <a href="mailto:jimtattootatuajes@gmail.com" class="contact-link">
-                        ✉️ Email
-                    </a>
-                </div>
+            <div class="footer-section contact-info">
+                <h4>Contacto Directo</h4>
+                <p>📱 **WhatsApp:** +34 615 796 188</p>
+                <p>✉️ **Email:** jimtattootatuajes@gmail.com</p>
+                <p>📍 **Ubicación:** Barcelona (Solo con cita previa)</p>
             </div>
             
             <div class="footer-section">
@@ -255,13 +217,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS (Rutas corregidas a absoluta) -->
+    <!-- SCRIPTS -->
     <script src="./js/main.js"></script>
-    <script>
-        // Funcionalidad de menú responsive (Mantenida en main.js)
-        // document.getElementById('navToggle').addEventListener('click', function() {
-        //     document.getElementById('navMenu').classList.toggle('active');
-        // });
-    </script>
 </body>
 </html>

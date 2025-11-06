@@ -18,6 +18,7 @@
     <header>
         <nav class="navbar">
             <div class="nav-brand">
+                <!-- Se usa el logo original para consistencia -->
                 <img src="images/logos/logo 1 - copia.png" alt="Jim Tattoo Ink Logo" class="logo">
                 <span>JIM TATTOO INK</span>
             </div>
@@ -40,176 +41,39 @@
     </header>
 
     <main class="main-content">
-        <div class="container">
-             <!-- Hero Section de Galería (H1) -->
-             <section class="gallery-hero">
-                <div class="hero-content">
-                    <h1>Mi Portafolio de Tatuajes</h1>
-                    <p class="hero-subtitle">18 años creando arte en piel. Especializado en Blackwork en Barcelona</p>
-                </div>
-            </section>
+        <!-- Hero Section de Galería (H1) -->
+        <section class="gallery-hero">
+            <div class="container">
+                <h1>Mi Portafolio de Tatuajes</h1>
+                <p class="subtitle">18 años creando arte en piel. Especializado en Blackwork en Barcelona</p>
+            </div>
+        </section>
 
         <!-- Sección de Filtros -->
         <section class="filters-section">
-            <h2 class="section-title">Explora por Estilo</h2>
-            <div class="filters">
-                <button class="filter-btn active" data-filter="todos">
-                    Todos
-                </button>
-                <button class="filter-btn" data-filter="blackwork">
-                    Blackwork
-                </button>
-                <button class="filter-btn" data-filter="minimalista">
-                    Minimalista
-                </button>
-                <button class="filter-btn" data-filter="color">
-                    Color
-                </button>
-                <button class="filter-btn" data-filter="otros">
-                    Otros Estilos
-                </button>
+            <div class="container">
+                <h2 class="section-title">Explora por Estilo</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="todos">
+                        Todos
+                    </button>
+                    <button class="filter-btn" data-filter="blackwork">
+                        Blackwork
+                    </button>
+                    <button class="filter-btn" data-filter="minimalista">
+                        Minimalista
+                    </button>
+                    <button class="filter-btn" data-filter="color">
+                        Color
+                    </button>
+                    <button class="filter-btn" data-filter="otros">
+                        Otros Estilos
+                    </button>
+                </div>
             </div>
         </section>
-        
         <!-- GALERÍA  -->
         <section class="gallery-section">
-            <div class="gallery-grid">
-                <!-- Tarjeta 1: Blackwork -->
-                <article class="gallery-card" data-category="blackwork">
-                    <div class="card-image-wrapper">
-                        <img src="images/gallery/blackwork/2.jpg" alt="Tatuaje Blackwork Geométrico en Brazo" class="card-image">
-                        <div class="card-overlay">
-                            <button class="view-btn" aria-label="Ver imagen en grande">
-                                <span>Ver Obra</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Diseño Geométrico</h3>
-                        <p class="card-category">Blackwork</p>
-                    </div>
-                </article>
-                <!-- Tarjeta 2: Blackwork -->
-                <article class="gallery-card" data-category="blackwork">
-                    <div class="card-image-wrapper">
-                        <img src="images/gallery/blackwork/3.png" alt="Tatuaje Blackwork Patrón Intrincado" class="card-image">
-                        <div class="card-overlay">
-                            <button class="view-btn" aria-label="Ver imagen en grande">
-                                <span>Ver Obra</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Patrón Intrincado</h3>
-                        <p class="card-category">Blackwork</p>
-                    </div>
-                </article>
-                <!-- Tarjeta 3: Minimalista -->
-                <article class="gallery-card" data-category="minimalista">
-                    <div class="card-image-wrapper">
-                        <img src="images/gallery/minimalista/4.png" alt="Tatuaje Minimalista Líneas Simples" class="card-image">
-                        <div class="card-overlay">
-                            <button class="view-btn" aria-label="Ver imagen en grande">
-                                <span>Ver Obra</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Líneas Minimalistas</h3>
-                        <p class="card-category">Minimalista</p>
-                    </div>
-                </article>
-                <!-- Tarjeta 4: Color -->
-                <article class="gallery-card" data-category="color">
-                    <div class="card-image-wrapper">
-                        <img src="images/gallery/color/2.png" alt="Tatuaje Watercolor Fineline" class="card-image">
-                        <div class="card-overlay">
-                            <button class="view-btn" aria-label="Ver imagen en grande">
-                                <span>Ver Obra</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Watercolor Fineline</h3>
-                        <p class="card-category">Color</p>
-                    </div>
-                </article>
-                <!-- Tarjeta 5: Otros -->
-                <article class="gallery-card" data-category="otros">
-                    <div class="card-image-wrapper">
-                        <img src="images/gallery/otros/1.png" alt="Tatuaje Lettering Tipográfico" class="card-image">
-                        <div class="card-overlay">
-                            <button class="view-btn" aria-label="Ver imagen en grande">
-                                <span>Ver Obra</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Lettering Tipográfico</h3>
-                        <p class="card-category">Otros</p>
-                    </div>
-                </article>
-                <!-- Tarjeta 6: Blackwork -->
-                <article class="gallery-card" data-category="blackwork">
-                    <div class="card-image-wrapper">
-                        <img src="images/gallery/blackwork/13.png" alt="Tatuaje Blackwork Trazo Libre" class="card-image">
-                        <div class="card-overlay">
-                            <button class="view-btn" aria-label="Ver imagen en grande">
-                                <span>Ver Obra</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Trazo Libre</h3>
-                        <p class="card-category">Blackwork</p>
-                    </div>
-                </article>
-                <!-- Tarjeta 7: Minimalista -->
-                <article class="gallery-card" data-category="minimalista">
-                    <div class="card-image-wrapper">
-                        <img src="images/gallery/minimalista/5.png" alt="Tatuaje Minimalista Blackwork" class="card-image">
-                        <div class="card-overlay">
-                            <button class="view-btn" aria-label="Ver imagen en grande">
-                                <span>Ver Obra</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Minimalista Blackwork</h3>
-                        <p class="card-category">Minimalista</p>
-                    </div>
-                </article>
-                <!-- Tarjeta 8: Color -->
-                <article class="gallery-card" data-category="color">
-                    <div class="card-image-wrapper">
-                        <img src="images/gallery/color/5.webp" alt="Tatuaje New School Cartoon" class="card-image">
-                        <div class="card-overlay">
-                            <button class="view-btn" aria-label="Ver imagen en grande">
-                                <span>Ver Obra</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">New School Cartoon</h3>
-                        <p class="card-category">Color</p>
-                    </div>
-                </article>
-                <!-- Tarjeta 9: Otros -->
-                <article class="gallery-card" data-category="otros">
-                    <div class="card-image-wrapper">
-                        <img src="images/gallery/otros/3.png" alt="Tatuaje Realismo Black and Grey" class="card-image">
-                        <div class="card-overlay">
-                            <button class="view-btn" aria-label="Ver imagen en grande">
-                                <span>Ver Obra</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Realismo B&G</h3>
-                        <p class="card-category">Otros</p>
-                    </div>
-                </article>
-                <section class="gallery-section">
             <div class="gallery-grid">
                 <!-- Tarjeta 1: Blackwork -->
                 <article class="gallery-card" data-category="blackwork">
@@ -631,25 +495,10 @@
                         <p class="card-category">Otros</p>
                     </div>
                 </article>
-                <!-- Tarjeta 8: otros -->
-                <article class="gallery-card" data-category="blackwork">
-                    <div class="card-image-wrapper">
-                        <img src="images/gallery/otros/8.webp" alt="Tatuaje Fineline - Diseño vibrante y detallado" class="card-image">
-                        <div class="card-overlay">
-                            <button class="view-btn" aria-label="Ver imagen en grande">
-                                <span>Ver Obra</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Blackwork Ilustrativo</h3>
-                        <p class="card-category">blackwork</p>
-                    </div>
-                </article>
                 <!-- Tarjeta 9: otros -->
                 <article class="gallery-card" data-category="blackwork">
                     <div class="card-image-wrapper">
-                        <img src="images/gallery/otros/9.jpg" alt="tatuaje a Manga Panel / Blackwork Ilustrativo" class="card-image">
+                        <img src="images/gallery/Otros/9.jpg" alt="tatuaje a Manga Panel / Blackwork Ilustrativo" class="card-image">
                         <div class="card-overlay">
                             <button class="view-btn" aria-label="Ver imagen en grande">
                                 <span>Ver Obra</span>
@@ -662,6 +511,7 @@
                     </div>
                 </article>
                 <!-- Se pueden añadir más tarjetas aquí siguiendo el mismo formato -->
+                </div>
             </div>
         </section>
     </main>
@@ -680,14 +530,13 @@
         </div>
     </div>
 
-     <!-- Footer (Contacto y Legal) -->
+    <!-- Footer (Idéntico al index.html) -->
     <footer class="footer" id="contacto">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Jim Tattoo Ink</h3>
-                <p>Especialista en Blackwork-Piercing-Microdermal<br>Barcelona, España</p>
+                <p>Especialista en Blackwork<br>Barcelona, España</p>
                 <div class="social-links">
-                    <!-- Mantener enlaces a redes sociales -->
                     <a href="https://instagram.com/jimtattooink" target="_blank" aria-label="Instagram"><img src="images/logos/instagram.svg" alt="Instagram"></a>
                     <a href="https://www.facebook.com/profile.php?id=61575236865805" target="_blank" aria-label="Facebook"><img src="images/logos/facebook.svg" alt="Facebook"></a>
                     <a href="https://wa.me/34615796188" target="_blank" aria-label="WhatsApp"><img src="images/logos/whatsapp.svg" alt="WhatsApp"></a>
@@ -711,7 +560,6 @@
         
         <div class="footer-bottom">
             <div class="footer-legal-links">
-                <!-- Enlaces a la página legal -->
                 <a href="legal.html#privacidad">Política de Privacidad</a>
                 <a href="legal.html#cookies">Política de Cookies</a>
                 <a href="legal.html#menores">Menores de Edad</a>
@@ -723,5 +571,6 @@
 
     <!-- SCRIPTS -->
     <script src="./js/main.js"></script>
+    <script src="./js/gallery.js"></script>
 </body>
 </html>

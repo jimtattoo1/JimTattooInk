@@ -113,5 +113,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Inicializar: asegurar que "Todos" esté activo al cargar
-    document.querySelector('.filter-btn[data-filter="todos"]').click();
+    // Se añade un pequeño retraso para asegurar que el DOM esté completamente renderizado antes de intentar el primer filtro.
+    setTimeout(() => {
+        const todosButton = document.querySelector('.filter-btn[data-filter="todos"]');
+        if (todosButton) {
+            todosButton.click();
+        }
+    }, 100);
 });

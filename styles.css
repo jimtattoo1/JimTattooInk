@@ -1,6 +1,6 @@
 /*
  * styles.css - Hoja de Estilos Consolidada y Responsive
- * Autor: Manus AI para Jim Tattoo Ink
+ * Autor:Jim Tattoo Ink
  * Diseño: Moderno, Blackwork, Minimalista
  */
 
@@ -88,7 +88,7 @@ a:hover {
 
 .section-title {
     font-size: 2.5rem;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 2rem;
     color: var(--color-burgundy);
 }
 
@@ -163,7 +163,7 @@ header {
 }
 
 .nav-brand .logo {
-    height: 40px;
+    height: 60px;
     margin-right: var(--spacing-sm);
 }
 
@@ -212,7 +212,7 @@ header {
 
 /* 6. Hero Section */
 .hero {
-    background: url('images/gallery/hero_bg.jpg') no-repeat center center/cover; /* Asumiendo una imagen de fondo */
+    background: url('images/gallery/piercings/banners/banner1.png') no-repeat center center/cover; /* Asumiendo una imagen de fondo */
     height: 80vh;
     display: flex;
     align-items: center;
@@ -438,13 +438,14 @@ header {
 .filters-section {
     background-color: var(--color-primary);
     padding: var(--spacing-lg) 0;
+    text-align: center;
 }
 
 .filters {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: var(--spacing-md);
+    gap: 1.5rem;
     margin-bottom: var(--spacing-lg);
 }
 
@@ -452,10 +453,11 @@ header {
     background-color: var(--color-secondary);
     color: var(--color-text-light);
     border: 1px solid #333;
-    padding: 0.5rem 1rem;
+    padding: 1rem 3.5rem;
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    font-size: 0.9rem;
 }
 
 .filter-btn:hover,
@@ -544,6 +546,14 @@ header {
     font-size: 0.9rem;
     color: var(--color-accent);
 }
+/* correcion titulo y subtitulo gallery */
+.gallery-hero .container {
+    text-align: center;
+    /* Opcional: limitar el ancho del texto para que no se extienda por toda la pantalla */
+    max-width: 800px; 
+    margin: 0 auto;
+}
+
 
 /* Lightbox */
 .lightbox {
@@ -621,8 +631,8 @@ header {
 
 /* 12. Estilos de Piercing (piercing.html) */
 .piercings-hero {
-    background: url('images/gallery/piercings/piercing_hero.jpg') no-repeat center center/cover; /* Asumiendo una imagen de fondo */
-    height: 40vh;
+    background: url('images/gallery/piercings/banners/banner.png') no-repeat center center/cover; /* Asumiendo una imagen de fondo */
+    height: 35vh;
     display: flex;
     align-items: center;
     justify-content: center;

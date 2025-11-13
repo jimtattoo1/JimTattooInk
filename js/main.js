@@ -195,7 +195,7 @@ class ChatBot {
                 <div class="chatbot-header">
                     <div class="chatbot-avatar">
                         <!-- Ruta de imagen del chatbot mantenida -->
-                        <img src="images/logos/chatbot.png" alt="images/logos/logo 1 - copia.png" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <img src="images/logos/logo1.png" alt="images/logos/logo1.png" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
                     </div>
                     <div class="chatbot-info">
                         <h4>Jim Tattoo Assistant</h4>

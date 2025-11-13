@@ -411,3 +411,75 @@ class ChatBot {
 document.addEventListener('DOMContentLoaded', () => {
     new ChatBot();
 });
+// ===== VERIFICACIÓN DE EDAD =====
+class AgeVerification {
+    constructor() {
+        this.modal = document.getElementById('ageVerification');
+        this.confirmBtn = document.getElementById('ageConfirm');
+        this.denyBtn = document.getElementById('ageDeny');
+        this.hasVerified = localStorage.getItem('ageVerified');
+        
+        this.init();
+    }
+    
+    init() {
+        // Si ya verificó antes, no mostrar modal
+        if (this.hasVerified === 'true') {
+            document.body.classList.add('age-verified');
+            return;
+        }
+        
+        // Mostrar modal y bloquear página
+        document.body.classList.add('age-check-pending');
+        this.modal.style.display = 'flex';
+        
+        // Event listeners
+        this.confirmBtn.addEventListener('click', () => this.confirmAge());
+        this.denyBtn.addEventListener('click', () => this.denyAge());
+        
+        // Prevenir acceso con teclado
+        document.addEventListener('keydown', (e) => {
+            if (document.body.classList.contains('age-check-pending')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    }
+    
+    confirmAge() {
+        // Guardar en localStorage por 30 días
+        localStorage.setItem('ageVerified', 'true');
+        localStorage.setItem('ageVerifiedTimestamp', Date.now());
+        
+        // Mostrar contenido
+        document.body.classList.remove('age-check-pending');
+        document.body.classList.add('age-verified');
+        
+        console.log('✅ Edad verificada - Acceso permitido');
+    }
+    
+    denyAge() {
+        // Redirigir a página segura o mostrar mensaje
+        const denyMessage = `
+            <div class="age-modal-content">
+                <div class="age-modal-header">
+                    <h2>🔞 Acceso Denegado</h2>
+                </div>
+                <div class="age-modal-body">
+                    <p>Lo sentimos, debes ser <strong>mayor de 18 años</strong> para acceder a este contenido.</p>
+                    <p>Te recomendamos visitar nuestro <a href="https://instagram.com/jimtattooink" target="_blank">Instagram</a> para ver contenido apto para todas las edades.</p>
+                    <button onclick="window.location.href='https://google.com'" class="btn-age btn-age-deny" style="margin-top: 1rem;">
+                        🏠 Salir del sitio
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        this.modal.innerHTML = denyMessage;
+    }
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    new AgeVerification();
+});

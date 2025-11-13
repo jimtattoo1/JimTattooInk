@@ -1100,3 +1100,122 @@ header {
         right: 10px;
     }
 }
+/* ===== VERIFICACIÓN DE EDAD ===== */
+.age-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    backdrop-filter: blur(10px);
+}
+
+.age-modal-content {
+    background: var(--color-black);
+    border: 3px solid var(--color-dark-red);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.age-modal-header h2 {
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    font-size: 1.5em;
+}
+
+.age-modal-body p {
+    color: var(--color-off-white);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.age-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.btn-age {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-age-confirm {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+}
+
+.btn-age-confirm:hover {
+    background: linear-gradient(135deg, #219653, #27ae60);
+    transform: translateY(-2px);
+}
+
+.btn-age-deny {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    color: white;
+}
+
+.btn-age-deny:hover {
+    background: linear-gradient(135deg, #a33226, #c0392b);
+    transform: translateY(-2px);
+}
+
+.age-warning {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-top: 1.5rem;
+}
+
+.age-warning a {
+    color: var(--color-gold);
+    text-decoration: none;
+}
+
+.age-warning a:hover {
+    text-decoration: underline;
+}
+
+/* Ocultar el contenido principal hasta verificación */
+body.age-check-pending main,
+body.age-check-pending footer,
+body.age-check-pending .chatbot-toggle {
+    display: none !important;
+}
+
+body.age-verified .age-modal {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .age-modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .age-buttons {
+        gap: 0.8rem;
+    }
+    
+    .btn-age {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+}
